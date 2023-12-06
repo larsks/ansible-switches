@@ -129,7 +129,7 @@ interfaces:
       - 2470:2473
       - 2476:2478
     mtu: 9216
-    stp: 
+    stp:
       disabled: true
     lacp-rate: "fast"
     lacp-members-active:

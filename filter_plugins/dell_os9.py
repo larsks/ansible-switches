@@ -437,7 +437,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
                 if "rootguard" in stp_fields and stp_fields["rootguard"]:
                     # enable rootguard
                     conf_line = f"spanning-tree {stp_type} rootguard"
-                    
+
                     if conf_line not in running_fields or default_port:
                         out.append(conf_line)
                 elif f"spanning-tree {stp_type} rootguard" in running_fields:
