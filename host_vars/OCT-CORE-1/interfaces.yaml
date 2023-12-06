@@ -127,7 +127,9 @@ interfaces:
   hundredGigE 1/24:
     state: "down"
   hundredGigE 1/25:
-    state: "down"
+    description: "MOC-CORE-2 Port 26"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/26:
     state: "down"
   hundredGigE 1/27:
@@ -234,6 +236,7 @@ interfaces:
       - 520:622
       - 623
       - 624:630
+      - 700
       # MGMT
       - 911
       - 912
@@ -298,6 +301,25 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/30"
     mlag: "Port-channel 30"
+  Port-channel 40:
+    description: "MOC-CORE-1 and MOC-CORE-2"
+    state: "up"
+    portmode: "trunk"
+    tagged:
+      - 10
+      - 213
+      - 351:499
+      - 520:622
+      - 623
+      - 624:630
+      - 3801
+      - 3802
+      - 3803
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/25"
+    mlag: "Port-channel 40"
   Port-channel 100:
     description: "OCT-CORE-2 VLT LAG"
     state: "up"

@@ -349,6 +349,10 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         out = []
 
+        if "port-channel-protocol lacp" in running_fields:
+            out.append("no port-channel-protocol lacp")
+            #! this only works for LACP, what if interface is in a normal LAG?
+
         if "ip4" in man_fields:
             # ip4 attribute exists in the manifest
             conf_line = f"ip address {man_fields['ip4']}"
@@ -377,6 +381,10 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         out = []
 
+        if "port-channel-protocol lacp" in running_fields:
+            out.append("no port-channel-protocol lacp")
+            #! this only works for LACP, what if interface is in a normal LAG?
+
         if "ip6" in man_fields:
             # ip6 attribute exists in the manifest
             conf_line = f"ipv6 address {man_fields['ip6']}"
@@ -389,35 +397,67 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         return out
 
-    def os9_edgeport(man_fields, running_fields, default_port):
-        """
-        Create OS9 commands for "edge-port" attribute
-
-        :param man_fields: Manifest fields for current interface
-        :type man_fields: dict
-        :param running_fields: Interface attributes in the running config
-        :type running_fields: list
-        :param default_port: If true, this port is being defaulted
-        :type default_port: boolean
-        :return: List of OS9 commands to set edge-port
-        :rtype: list
-        """
+    def os9_stp(man_fields, running_fields, default_port):
 
         out = []
 
-        # Every edge port interface will be defined as an edge port for all 3 protocols
         os9_stp_types = ["rstp", "pvst", "mstp"]
 
-        is_edgeport = "stp-edge" in man_fields and man_fields["stp-edge"]
+        # enable/disable
+        stp_disabled = "stp" in man_fields and "disabled" in man_fields["stp"] and man_fields["stp"]["disabled"]
+        if stp_disabled:
+            # stp should be disabled
+            conf_line = f"no spanning-tree"
+            if conf_line not in running_fields and not default_port:
+                out.append(conf_line)
+        elif "no spanning-tree" in running_fields:
+            conf_line = "spanning-tree"
+            out.append(conf_line)
+
         for stp_type in os9_stp_types:
-            # Loop through each stp type available
-            conf_line = f"spanning-tree {stp_type} edge-port"
-            if is_edgeport:
-                if conf_line not in running_fields or default_port:
-                    out.append(conf_line)  # add to out only if not already in switch conf
-            else:
-                if conf_line in running_fields and not default_port:
-                    out.append(f"no {conf_line}")
+            if "stp" in man_fields:
+                stp_fields = man_fields["stp"]
+
+                # Edgeport settings
+                if "edgeport" in stp_fields and stp_fields["edgeport"]:
+                    # this port is an edge port
+                    conf_line = f"spanning-tree {stp_type} edge-port"
+                    if "bpduguard" in stp_fields and stp_fields["bpduguard"]:
+                        conf_line += " bpduguard shutdown-on-violation"
+                    elif any("bpduguard" in item for item in running_fields):
+                        # existing bpduguard where it shouldn't be
+                        out.append(f"no spanning-tree {stp_type} edge-port")
+
+                    if conf_line not in running_fields or default_port:
+                        out.append(conf_line)
+                elif any(item.startswith(f"spanning-tree {stp_type} edge-port") for item in running_fields):
+                    out.append(f"no spanning-tree {stp_type} edge-port")
+
+                # Rootguard settings
+                if "rootguard" in stp_fields and stp_fields["rootguard"]:
+                    # enable rootguard
+                    conf_line = f"spanning-tree {stp_type} rootguard"
+
+                    if conf_line not in running_fields or default_port:
+                        out.append(conf_line)
+                elif f"spanning-tree {stp_type} rootguard" in running_fields:
+                    out.append(f"no spanning-tree {stp_type} rootguard")
+
+                # Loopguard settings
+                if "loopguard" in stp_fields and stp_fields["loopguard"]:
+                    # enable loopguard
+                    conf_line = f"spanning-tree {stp_type} loopguard"
+
+                    if conf_line not in running_fields or default_port:
+                        out.append(conf_line)
+                elif f"spanning-tree {stp_type} loopguard" in running_fields:
+                    out.append(f"no spanning-tree {stp_type} loopguard")
+            elif any(item.startswith(f"spanning-tree {stp_type} edge-port") for item in running_fields):
+                out.append(f"no spanning-tree {stp_type} edge-port")
+            elif f"spanning-tree {stp_type} rootguard" in running_fields:
+                out.append(f"no spanning-tree {stp_type} rootguard")
+            elif f"spanning-tree {stp_type} loopguard" in running_fields:
+                out.append(f"no spanning-tree {stp_type} loopguard")
 
         return out
 
@@ -846,7 +886,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
     cur_intf_cfg += portmode_out
     cur_intf_cfg += os9_mlag(intf_fields, running_config, default_port)
     # STP
-    cur_intf_cfg += os9_edgeport(intf_fields, running_config, default_port)
+    cur_intf_cfg += os9_stp(intf_fields, running_config, default_port)
 
     # these go directly to output because they are controlling other interfaces
     cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list)

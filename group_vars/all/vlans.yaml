@@ -887,6 +887,9 @@ vlans:
   630:
     name: ESI-630
     description: ESI Vlan 630
+  700:
+    name: "ESI-Provisioning-NEW"
+    description: "Testing VLAN for new ESI deployment"
   701:
     name: "ENGAGE1-FOREMAN"
     description: "Foreman Provisioning. SNMP for OpenStack and Ceph"

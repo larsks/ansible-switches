@@ -4,13 +4,15 @@ interfaces:
     state: "up"
     portmode: "access"
     untagged: 930
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/2:
     description: "MOC-CORE-4 MGMT"
     state: "up"
     portmode: "access"
     untagged: 930
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/3:
     description: "MOC-R4PAC##-SW-MGMT"
     state: "up"

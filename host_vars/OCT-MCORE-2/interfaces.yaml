@@ -76,13 +76,15 @@ interfaces:
     state: "up"
     portmode: "access"
     untagged: 930
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/18:
     description: "OCT-CORE-4 MGMT"
     state: "up"
     portmode: "access"
     untagged: 930
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/19:
     state: "down"
   GigabitEthernet 1/20:

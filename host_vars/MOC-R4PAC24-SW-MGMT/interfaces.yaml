@@ -4,109 +4,127 @@ interfaces:
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/2:
     description: "U5-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/3:
     description: "U7-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/4:
     description: "U9-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/5:
     description: "U11-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/6:
     description: "U13-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/7:
     description: "U15-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/8:
     description: "U17-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/9:
     description: "U19-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/10:
     description: "U21-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/11:
     description: "U23-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/12:
     description: "U25-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/13:
     description: "U27-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/14:
     description: "U29-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/15:
     description: "U31-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/16:
     description: "U33-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/17:
     description: "U35-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/18:
     description: "U37-CMC"
     state: "up"
     portmode: "access"
     untagged: 911
-    stp-edge: true
+    stp:
+      edgeport: true
   GigabitEthernet 1/19:
     state: "down"
   GigabitEthernet 1/20:
@@ -196,7 +214,7 @@ interfaces:
       - 911
       - 930
     lacp-rate: "fast"
-    interfaces:
+    lacp-members-active:
       - "TenGigabitEthernet 1/51"
       - "TenGigabitEthernet 1/52"
   Vlan 930:
