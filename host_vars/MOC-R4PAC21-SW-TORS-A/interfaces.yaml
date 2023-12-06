@@ -131,128 +131,192 @@ interfaces:
       speed: "10G"
   TenGigabitEthernet 1/9/1:
     #description: "U31-S1A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/9/2:
     #description: "U31-S1B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/9/3:
     #description: "U31-S1C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/9/4:
     #description: "U31-S1D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/10:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/10/1:
     #description: "U31-S3A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/10/2:
     #description: "U31-S3B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/10/3:
     #description: "U31-S3C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/10/4:
     #description: "U31-S3D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/11:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/11/1:
     #description: "U33-S1A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/11/2:
     #description: "U33-S1B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/11/3:
     #description: "U33-S1C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/11/4:
     #description: "U33-S1D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/12:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/12/1:
     #description: "U33-S3A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/12/2:
     #description: "U33-S3B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/12/3:
     #description: "U33-S3C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/12/4:
     #description: "U33-S3D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/13:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/13/1:
     #description: "U35-S1A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/13/2:
     #description: "U35-S1B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/13/3:
     #description: "U35-S1C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/13/4:
     #description: "U35-S1D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/14:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/14/1:
     #description: "U35-S3A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/14/2:
     #description: "U35-S3B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/14/3:
     #description: "U35-S3C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/14/4:
     #description: "U35-S3D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/15:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/15/1:
     #description: "U37-S1A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/15/2:
     #description: "U37-S1B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/15/3:
     #description: "U37-S1C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/15/4:
     #description: "U37-S1D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/16:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/16/1:
     #description: "U37-S3A-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/16/2:
     #description: "U37-S3B-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/16/3:
     #description: "U37-S3C-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   TenGigabitEthernet 1/16/4:
     #description: "U37-S3D-P1"
-    managed: true
+    state: "up"
+    portmode: "access"
+    untagged: 204
   hundredGigE 1/17:
     state: "down"
   hundredGigE 1/18:
@@ -288,11 +352,13 @@ interfaces:
     portmode: "trunk"
     tagged:
       - 10
+      - 204
       - 213
       - 351:499
       - 520:622
       - 623
       - 624:630
+      - 700
       - 911
       - 930
       - 3801

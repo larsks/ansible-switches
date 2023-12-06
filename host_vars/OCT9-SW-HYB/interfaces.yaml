@@ -85,7 +85,10 @@ interfaces:
     portmode: "access"
     untagged: 910
   GigabitEthernet 1/18:
-    state: "down"
+    description: "oct-r3pbc07-jtag-obm"
+    state: "up"
+    portmode: "access"
+    untagged: 910
   GigabitEthernet 1/19:
     state: "down"
   GigabitEthernet 1/20:
@@ -184,7 +187,10 @@ interfaces:
     portmode: "access"
     untagged: 84
   GigabitEthernet 1/42:
-    state: "down"
+    description: "oct-r4pac07-jtag"
+    state: "up"
+    portmode: "access"
+    untagged: 84
   GigabitEthernet 1/43:
     state: "down"
   GigabitEthernet 1/44:
