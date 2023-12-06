@@ -33,14 +33,14 @@ MOC-MCORE-2 ansible_host=10.80.1.32 ansible_network_os=dellemc.os9.os9
 MOC-R4PAC21-SW-TORS-A ansible_host=10.80.3.11   ansible_network_os=dellemc.os9.os9
 MOC-R4PAC21-SW-TORS-B ansible_host=10.80.3.12   ansible_network_os=dellemc.os9.os9
 MOC-R4PAC21-SW-MGMT ansible_host=10.80.3.15 ansible_network_os=dellemc.os9.os9
-# MOC R4PAC22
-#MOC-R4PAC22-SW-TORS-A ansible_host=10.80.3.31   ansible_network_os=dellemc.os9.os9
-#MOC-R4PAC22-SW-TORS-B ansible_host=10.80.3.32   ansible_network_os=dellemc.os9.os9
-#MOC-R4PAC22-SW-MGMT ansible_host=10.80.3.35 ansible_network_os=dellemc.os9.os9
 # MOC R4PAC24
-#MOC-R4PAC24-SW-TORS-A ansible_host=10.80.3.21   ansible_network_os=dellemc.os9.os9
-#MOC-R4PAC24-SW-TORS-B ansible_host=10.80.3.22   ansible_network_os=dellemc.os9.os9
+MOC-R4PAC24-SW-TORS-A ansible_host=10.80.3.21   ansible_network_os=dellemc.os9.os9
+MOC-R4PAC24-SW-TORS-B ansible_host=10.80.3.22   ansible_network_os=dellemc.os9.os9
 MOC-R4PAC24-SW-MGMT ansible_host=10.80.3.25 ansible_network_os=dellemc.os9.os9
+# MOC R4PAC22
+MOC-R4PAC22-SW-TORS-A ansible_host=10.80.3.31   ansible_network_os=dellemc.os9.os9
+MOC-R4PAC22-SW-TORS-B ansible_host=10.80.3.32   ansible_network_os=dellemc.os9.os9
+MOC-R4PAC22-SW-MGMT ansible_host=10.80.3.35 ansible_network_os=dellemc.os9.os9
 
 [dev]
 # OCT5 Rack
