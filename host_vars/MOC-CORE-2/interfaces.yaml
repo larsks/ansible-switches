@@ -1,9 +1,77 @@
 interfaces:
   hundredGigE 1/1:
+    fanout:
+      type: "quad"
+      speed: "25G"
+  twentyFiveGigE 1/1/1:
+    description: "MOCINFRA-CTRL-U36-R"
+    state: "up"
+    mtu: 9216
+  twentyFiveGigE 1/1/2:
+    description: "MOCINFRA-CTRL-U35-R"
+    state: "up"
+    mtu: 9216
+  twentyFiveGigE 1/1/3:
+    description: "MOCINFRA-CTRL-U34-R"
+    state: "up"
+    mtu: 9216
+  twentyFiveGigE 1/1/4:
     state: "down"
   hundredGigE 1/2:
+    fanout:
+      type: "quad"
+      speed: "25G"
+  twentyFiveGigE 1/2/1:
+    description: "ESI-CTRL-U33-R"
+    state: "up"
+    untagged: 214
+    tagged:
+      - 911
+      - 250
+      - 213
+      - 700
+    portmode: "hybrid"
+    mtu: 9216
+  twentyFiveGigE 1/2/2:
+    description: "ESI-CTRL-U32-R"
+    state: "up"
+    untagged: 214
+    tagged:
+      - 911
+      - 250
+      - 213
+      - 700
+    portmode: "hybrid"
+    mtu: 9216
+  twentyFiveGigE 1/2/3:
+    description: "ESI-CTRL-U31-R"
+    state: "up"
+    untagged: 214
+    tagged:
+      - 911
+      - 250
+      - 213
+      - 700
+    portmode: "hybrid"
+    mtu: 9216
+  twentyFiveGigE 1/2/4:
     state: "down"
   hundredGigE 1/3:
+    fanout:
+      type: "quad"
+      speed: "10G"
+  TenGigabitEthernet 1/3/1:
+    description: "ESI Undercloud Port 2"
+    state: "up"
+    portmode: "access"
+    untagged: 214
+    stp:
+      edgeport: true
+  TenGigabitEthernet 1/3/2:
+    state: "down"
+  TenGigabitEthernet 1/3/3:
+    state: "down"
+  TenGigabitEthernet 1/3/4:
     state: "down"
   hundredGigE 1/4:
     state: "down"
@@ -16,6 +84,7 @@ interfaces:
   hundredGigE 1/8:
     state: "down"
   hundredGigE 1/9:
+    description: "Uplink to R8-PA-C23"
     state: "down"
   hundredGigE 1/10:
     state: "down"
@@ -91,7 +160,6 @@ interfaces:
       - 623
       - 624:630
       - 911
-      - 930
       - 3801
       - 3802
       - 3803
@@ -107,13 +175,16 @@ interfaces:
     portmode: "trunk"
     tagged:
       - 10
+      - 127
+      - 207
       - 213
+      - 214
+      - 250
       - 351:499
       - 520:622
       - 623
       - 624:630
       - 911
-      - 930
       - 3801
       - 3802
       - 3803
