@@ -55,23 +55,9 @@ interfaces:
   GigabitEthernet 1/10:
     state: "down"
   GigabitEthernet 1/11:
-    description: "ESI Undercloud Port 1"
-    state: "up"
-    portmode: "hybrid"
-    untagged: 127
-    tagged:
-      - 207
-      - 911
-      - 912
-    stp:
-      edgeport: true
+    state: "down"
   GigabitEthernet 1/12:
-    description: "ESI Undercloud Port 2"
-    state: "up"
-    portmode: "access"
-    untagged: 214
-    stp:
-      edgeport: true
+    state: "down"
   GigabitEthernet 1/13:
     state: "down"
   GigabitEthernet 1/14:
