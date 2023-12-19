@@ -201,22 +201,9 @@ interfaces:
   TenGigabitEthernet 1/50:
     state: "down"
   TenGigabitEthernet 1/51:
-    description: "Po1 Member MOC-R4PAC22-SW-TORS-A"
-    state: "up"
+    state: "down"
   TenGigabitEthernet 1/52:
-    description: "Po1 Member MOC-R4PAC22-SW-TORS-B"
-    state: "up"
-  Port-channel 1:
-    description: "MOC-R4PAC22-SW-TORS LAG"
-    state: "up"
-    portmode: "trunk"
-    tagged:
-      - 911
-      - 930
-    lacp-rate: "fast"
-    lacp-members-active:
-      - "TenGigabitEthernet 1/51"
-      - "TenGigabitEthernet 1/52"
+    state: "down"
   Vlan 930:
     state: "up"
     ip4: "10.80.3.35/20"

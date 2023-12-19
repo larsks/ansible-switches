@@ -148,20 +148,20 @@ interfaces:
     #description: "U31-S1B-P1"
     managed: true
   TenGigabitEthernet 1/21/3:
-    #description: "U31-S3A-P1"
+    #description: "U31-S1C-P1"
     managed: true
   TenGigabitEthernet 1/21/4:
-    #description: "U31-S3B-P1"
+    #description: "U31-S1D-P1"
     managed: true
   hundredGigE 1/22:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/22/1:
-    #description: "U31-S1C-P1"
+    #description: "U31-S3A-P1"
     managed: true
   TenGigabitEthernet 1/22/2:
-    #description: "U31-S1D-P1"
+    #description: "U31-S3B-P1"
     managed: true
   TenGigabitEthernet 1/22/3:
     #description: "U31-S3C-P1"
@@ -180,20 +180,20 @@ interfaces:
     #description: "U33-S1B-P1"
     managed: true
   TenGigabitEthernet 1/23/3:
-    #description: "U33-S3A-P1"
+    #description: "U33-S1C-P1"
     managed: true
   TenGigabitEthernet 1/23/4:
-    #description: "U33-S3B-P1"
+    #description: "U33-S1D-P1"
     managed: true
   hundredGigE 1/24:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/24/1:
-    #description: "U33-S1C-P1"
+    #description: "U33-S3A-P1"
     managed: true
   TenGigabitEthernet 1/24/2:
-    #description: "U33-S1D-P1"
+    #description: "U33-S3B-P1"
     managed: true
   TenGigabitEthernet 1/24/3:
     #description: "U33-S3C-P1"
@@ -212,20 +212,20 @@ interfaces:
     #description: "U35-S1B-P1"
     managed: true
   TenGigabitEthernet 1/25/3:
-    #description: "U35-S3A-P1"
+    #description: "U35-S1C-P1"
     managed: true
   TenGigabitEthernet 1/25/4:
-    #description: "U35-S3B-P1"
+    #description: "U35-S1D-P1"
     managed: true
   hundredGigE 1/26:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/26/1:
-    #description: "U35-S1C-P1"
+    #description: "U35-S3A-P1"
     managed: true
   TenGigabitEthernet 1/26/2:
-    #description: "U35-S1D-P1"
+    #description: "U35-S3B-P1"
     managed: true
   TenGigabitEthernet 1/26/3:
     #description: "U35-S3C-P1"
@@ -244,20 +244,20 @@ interfaces:
     #description: "U37-S1B-P1"
     managed: true
   TenGigabitEthernet 1/27/3:
-    #description: "U37-S3A-P1"
+    #description: "U37-S1C-P1"
     managed: true
   TenGigabitEthernet 1/27/4:
-    #description: "U37-S3B-P1"
+    #description: "U37-S1D-P1"
     managed: true
   hundredGigE 1/28:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/28/1:
-    #description: "U37-S1C-P1"
+    #description: "U37-S3A-P1"
     managed: true
   TenGigabitEthernet 1/28/2:
-    #description: "U37-S1D-P1"
+    #description: "U37-S3B-P1"
     managed: true
   TenGigabitEthernet 1/28/3:
     #description: "U37-S3C-P1"
@@ -278,22 +278,11 @@ interfaces:
     description: "VLT Link 2"
     state: "up"
   TenGigabitEthernet 1/33:
-    description: "Po1 Member - MOC-R4PAC21-SW-MGMT"
-    state: "up"
+    state: "down"
   TenGigabitEthernet 1/34:
     description: "VLT Heartbeat Link"
     state: "up"
     ip4: "10.255.255.1/30"
-  Port-channel 1:
-    description: "MOC-R4PAC24-SW-MGMT"
-    state: "up"
-    portmode: "trunk"
-    tagged:
-      - 911
-    lacp-rate: "fast"
-    lacp-members-active:
-      - "TenGigabitEthernet 1/33"
-    mlag: "Port-channel 1"
   Port-channel 10:
     description: "MOC-CORE-3/4 Uplink"
     state: "up"
@@ -305,6 +294,7 @@ interfaces:
       - 520:622
       - 623
       - 624:630
+      - 911
       - 3801
       - 3802
       - 3803
