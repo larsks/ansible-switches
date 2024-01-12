@@ -28,9 +28,19 @@ interfaces:
       - 911
       - 930
   GigabitEthernet 1/5:
-    state: "down"
+    description: "MOC-R4PAC10-SW-MGMT"
+    state: "up"
+    portmode: "trunk"
+    tagged:
+      - 911
+      - 930
   GigabitEthernet 1/6:
-    state: "down"
+    description: "MOC-R4PAC08-SW-MGMT"
+    state: "up"
+    portmode: "trunk"
+    tagged:
+      - 911
+      - 930
   GigabitEthernet 1/7:
     state: "down"
   GigabitEthernet 1/8:
