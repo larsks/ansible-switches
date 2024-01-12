@@ -27,7 +27,6 @@ interfaces:
     untagged: 127
     tagged:
       - 207
-      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/2:
@@ -36,7 +35,6 @@ interfaces:
     untagged: 127
     tagged:
       - 207
-      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/3:
@@ -45,7 +43,6 @@ interfaces:
     untagged: 127
     tagged:
       - 207
-      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/4:

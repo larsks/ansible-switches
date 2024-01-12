@@ -30,6 +30,7 @@ interfaces:
       - 250
       - 213
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/2:
@@ -41,6 +42,7 @@ interfaces:
       - 250
       - 213
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/3:
@@ -52,6 +54,7 @@ interfaces:
       - 250
       - 213
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/4:
