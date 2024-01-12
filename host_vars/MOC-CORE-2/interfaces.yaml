@@ -29,7 +29,9 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/2:
@@ -40,7 +42,9 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/3:
@@ -51,7 +55,9 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
+      - 3801
     portmode: "hybrid"
     mtu: 9216
   twentyFiveGigE 1/2/4:
