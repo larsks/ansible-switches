@@ -29,6 +29,7 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
       - 3801
     portmode: "hybrid"
@@ -41,6 +42,7 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
       - 3801
     portmode: "hybrid"
@@ -53,6 +55,7 @@ interfaces:
       - 911
       - 250
       - 213
+      - 464:519
       - 700
       - 3801
     portmode: "hybrid"
