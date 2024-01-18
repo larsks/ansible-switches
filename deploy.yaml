@@ -1,9 +1,9 @@
 ---
 - name: Deployment Playbook
-  hosts: all
-  connection: network_cli
+  hosts: localhost
   gather_facts: false
   vars:
     diff_only: false
-  roles:
-    - common
+  tasks:
+    - debug:
+        msg: This is a test.
