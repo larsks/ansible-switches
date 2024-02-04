@@ -954,6 +954,7 @@ def OS9_FANOUTCFG(sw_config, manifest):
 
             conf_line_base = f"stack-unit 1 port {port_num} portmode {fanout_type}"
             manifest_stackunits.append(conf_line_base)
+            # ! TODO: Sometimes os9 doesn't accept the 'speed' argument if there is only 1 speed option
             conf_line = f"{conf_line_base} speed {fanout_speed}"
             manifest_stackunits.append(conf_line)
 

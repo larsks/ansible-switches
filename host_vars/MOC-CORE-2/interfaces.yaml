@@ -26,6 +26,7 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
+      - 464:519
       - 911
       - 250
       - 213
@@ -39,6 +40,7 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
+      - 464:519
       - 911
       - 250
       - 213
@@ -52,6 +54,7 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
+      - 464:519
       - 911
       - 250
       - 213
@@ -91,7 +94,8 @@ interfaces:
     state: "down"
   hundredGigE 1/9:
     description: "Uplink to R8-PA-C23"
-    state: "down"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/10:
     state: "down"
   hundredGigE 1/11:
@@ -192,6 +196,7 @@ interfaces:
       - 624:630
       - 700
       - 911
+      - 930
       - 3801
       - 3802
       - 3803
@@ -217,6 +222,17 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/25"
     mlag: "Port-channel 30"
+  Port-channel 40:
+    description: "R8PAC23-Uplink"
+    state: "up"
+    portmode: "trunk"
+    tagged:
+      - 930
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/9"
+    mlag: "Port-channel 40"
   Port-channel 100:
     description: "MOC-CORE-1 VLT LAG"
     state: "up"

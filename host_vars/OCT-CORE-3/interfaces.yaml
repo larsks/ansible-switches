@@ -96,7 +96,13 @@ interfaces:
     state: "up"
     mtu: 9216
   hundredGigE 1/15:
-    state: "down"
+    fanout:
+      type: "single"
+      speed: "40G"
+  fortyGigE 1/15/1:
+    description: "OCT4-DEVESI Port #### Po8"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/16:
     state: "down"
   hundredGigE 1/17:
@@ -287,6 +293,23 @@ interfaces:
     lacp-rate: "fast"
     lacp-members-active:
       - "hundredGigE 1/14"
+  Port-channel 8:
+    description: "OCT4-SW-ESIDEV LAG"
+    state: "up"
+    portmode: "trunk"
+    tagged:
+      - 213
+      # ESI
+      - 351:499
+      - 520:622
+      - 623
+      - 624:630
+      - 910
+      - 911
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "fortyGigE 1/15/1"
   Port-channel 10:
     description: "OCT-CORE-1 and OCT-CORE-2 Core LAG"
     state: "up"
