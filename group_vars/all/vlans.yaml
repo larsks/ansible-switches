@@ -554,6 +554,63 @@ vlans:
   500:
     name: "MOC_BMI"
     description: "MOC BMI Provisioning"
+  501:
+    name: ESI-501
+    description: ESI Vlan 501
+  502:
+    name: ESI-502
+    description: ESI Vlan 502
+  503:
+    name: ESI-503
+    description: ESI Vlan 503
+  504:
+    name: ESI-504
+    description: ESI Vlan 504
+  505:
+    name: ESI-505
+    description: ESI Vlan 505
+  506:
+    name: ESI-506
+    description: ESI Vlan 506
+  507:
+    name: ESI-507
+    description: ESI Vlan 507
+  508:
+    name: ESI-508
+    description: ESI Vlan 508
+  509:
+    name: ESI-509
+    description: ESI Vlan 509
+  510:
+    name: ESI-510
+    description: ESI Vlan 510
+  511:
+    name: ESI-511
+    description: ESI Vlan 511
+  512:
+    name: ESI-512
+    description: ESI Vlan 512
+  513:
+    name: ESI-513
+    description: ESI Vlan 513
+  514:
+    name: ESI-514
+    description: ESI Vlan 514
+  515:
+    name: ESI-515
+    description: ESI Vlan 515
+  516:
+    name: ESI-516
+    description: ESI Vlan 516
+  517:
+    name: ESI-517
+    description: ESI Vlan 517
+  518:
+    name: ESI-518
+    description: ESI Vlan 518
+  519:
+    name: ESI-519
+    description: ESI Vlan 519
   520:
     name: ESI-520
     description: ESI Vlan 520
