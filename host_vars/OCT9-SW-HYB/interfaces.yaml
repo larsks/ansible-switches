@@ -212,11 +212,9 @@ interfaces:
   TenGigabitEthernet 1/52:
     description: "OCT9-SW-TORS-A"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 84
-      - 910
-      - 930
-  Vlan 930:
+    tagged: "all"
+  Vlan 931:
     state: "up"
-    ip4: "10.80.2.93/20"
+    ip4: "10.81.2.95/20"

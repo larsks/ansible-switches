@@ -278,26 +278,17 @@ interfaces:
     description: "VLT Link 2"
     state: "up"
   TenGigabitEthernet 1/33:
-    state: "down"
-  TenGigabitEthernet 1/34:
-    description: "VLT Heartbeat Link"
+    description: "MOC-R4PAC22-SW-MGMT Port 51"
     state: "up"
-    ip4: "10.255.255.1/30"
+    mtu: 9216
+  TenGigabitEthernet 1/34:
+    state: "down"
   Port-channel 10:
     description: "MOC-CORE-3/4 Uplink"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 10
-      - 213
-      - 351:499
-      - 520:622
-      - 623
-      - 624:630
-      - 911
-      - 3801
-      - 3802
-      - 3803
+    tagged: "all"
     lacp-rate: "fast"
     lacp-members-active:
       - "hundredGigE 1/30"
@@ -309,6 +300,19 @@ interfaces:
     lag-members:
       - "hundredGigE 1/31"
       - "hundredGigE 1/32"
+  Port-channel 101:
+    description: "MOC-R4PAC22-SW-MGMT Uplink"
+    state: "up"
+    mtu: 9216
+    portmode: "trunk"
+    tagged: "all"
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "TenGigabitEthernet 1/33"
+    mlag: "Port-channel 101"
   Vlan 911:
     state: "up"
     ip4: "10.2.12.1/19"
+  Vlan 930:
+    state: "up"
+    ip4: "10.80.2.31/20"

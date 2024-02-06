@@ -66,13 +66,7 @@ interfaces:
   hundredGigE 1/30:
     state: "down"
   hundredGigE 1/31:
-    fanout:
-      type: "single"
-      speed: "40G"
-  fortyGigE 1/31/1:
-    description: "UNITY-CORE-1 Port #### Po200"
-    state: "up"
-    mtu: 9216
+    state: "down"
   hundredGigE 1/32:
     state: "down"
   TenGigabitEthernet 1/33:
@@ -80,53 +74,12 @@ interfaces:
     state: "up"
     mtu: 9216
   TenGigabitEthernet 1/34:
-    description: "OCT-CORE-4 Port 34 VLT Heartbeat"
-    state: "up"
-    ip4: "10.255.255.2/30"
+    state: "down"
   Port-channel 10:
     description: "OCT-CORE-1 and OCT-CORE-2 Core LAG"
     state: "up"
     portmode: "trunk"
-    tagged:
-      # CSAIL
-      - 10
-      # UMA Public IPs
-      - 84
-      # MOC Public IPs
-      - 105
-      - 127
-      # MOC
-      - 204
-      - 207
-      - 208
-      - 213
-      - 250
-      # Unity
-      - 300
-      # ESI
-      - 351:499
-      - 520:622
-      - 623
-      - 624:630
-      # MGMT
-      - 911
-      - 913
-      - 930
-      # AL2S VLANs
-      - 3100
-      - 3101
-      - 3102
-      - 3103
-      - 3104
-      - 3105
-      - 3106
-      - 3107
-      - 3108
-      - 3109
-      # CSAIL
-      - 3801
-      - 3802
-      - 3803
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:
@@ -140,29 +93,15 @@ interfaces:
     lag-members:
       - "hundredGigE 1/27"
       - "hundredGigE 1/28"
-  Port-channel 200:
-    description: "UNITY-CORE-1 LAG"
-    state: "up"
-    portmode: "trunk"
-    tagged:
-      # UNITY
-      - 300
-    mtu: 9216
-    lacp-rate: "fast"
-    lacp-members-active:
-      - "fortyGigE 1/31/1"
-    mlag: "Port-channel 200"
   Port-channel 300:
     description: "OCT-MCORE-2 LAG"
     state: "up"
     portmode: "trunk"
-    tagged:
-      # MGMT
-      - 910
-      - 911
-      - 912
-      - 913
+    tagged: "all"
     lacp-rate: "fast"
     lacp-members-active:
       - "TenGigabitEthernet 1/33"
     mlag: "Port-channel 300"
+  Vlan 931:
+    state: "up"
+    ip4: "10.81.1.4/20"

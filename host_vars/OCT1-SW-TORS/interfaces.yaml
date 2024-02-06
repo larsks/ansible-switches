@@ -210,9 +210,8 @@ interfaces:
   TenGigabitEthernet 1/48:
     description: "OCT1-SW-CTRL"
     state: "up"
-    portmode: "trunk"
-    tagged:
-      - 84
+    portmode: "access"
+    untagged: 84
   fortyGigE 1/49:
     state: "down"
   fortyGigE 1/50:
@@ -233,10 +232,7 @@ interfaces:
     description: "OCT-CORE-3 LAG"
     state: "up"
     portmode: "trunk"
-    tagged:
-      - 84
-      # MGMT
-      - 910
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:
@@ -245,3 +241,6 @@ interfaces:
   Vlan 910:
     state: "up"
     ip4: "10.0.0.4/22"
+  Vlan 931:
+    state: "up"
+    ip4: "10.81.2.11/20"

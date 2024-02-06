@@ -202,17 +202,20 @@ interfaces:
   TenGigabitEthernet 1/44:
     state: "down"
   TenGigabitEthernet 1/45:
-    state: "down"
+    description: "OCT4-SW-MGMT Port 51"
+    state: "up"
+    mtu: 9216
   TenGigabitEthernet 1/46:
-    state: "down"
+    description: "OCT4-SW-MGMT Port 52"
+    state: "up"
+    mtu: 9216
   TenGigabitEthernet 1/47:
     state: "down"
   TenGigabitEthernet 1/48:
     description: "OCT2-SW-CTRL"
     state: "up"
-    portmode: "trunk"
-    tagged:
-      - 84
+    portmode: "access"
+    untagged: 84
   fortyGigE 1/49:
     state: "down"
   fortyGigE 1/50:
@@ -232,16 +235,26 @@ interfaces:
   Port-channel 1:
     description: "OCT-CORE-3 LAG"
     state: "up"
-    portmode: "trunk"
-    tagged:
-      - 84
-      # MGMT
-      - 910
     mtu: 9216
+    portmode: "trunk"
+    tagged: "all"
     lacp-rate: "fast"
     lacp-members-active:
       - "fortyGigE 1/53"
       - "fortyGigE 1/54"
+  Port-channel 101:
+    description: "OCT2-SW-MGMT Uplink"
+    state: "up"
+    mtu: 9216
+    portmode: "trunk"
+    tagged: "all"
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "TenGigabitEthernet 1/45"
+      - "TenGigabitEthernet 1/46"
   Vlan 910:
     state: "up"
     ip4: "10.0.0.6/22"
+  Vlan 931:
+    state: "up"
+    ip4: "10.81.2.21/20"

@@ -114,8 +114,7 @@ interfaces:
   Port-channel 10:
     description: "MOC-CORE LAG"
     state: "up"
-    tagged:
-      - 930
+    tagged: "all"
     portmode: "trunk"
     mtu: 9216
     lacp-rate: "fast"
@@ -124,4 +123,4 @@ interfaces:
       - "hundredGigE 1/50"
   Vlan 930:
     state: "up"
-    ip4: "10.80.3.101/20"
+    ip4: "10.80.3.11/20"
