@@ -90,7 +90,7 @@ def OS9_GETINTFCONFIG(intf, sw_config):
 
     return output
 
-def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list, default_list):
+def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list, unmanaged_vlan_list, default_list):
     """
     This will generate a sequence of OS9 commands for a single interface based on existing and manifest config.
 
@@ -514,7 +514,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         return out,def_intf
 
-    def getTaggedVlanList(tagList):
+    def getTaggedVlanList(tagList, unmanaged_vlan_list):
         """
         The manifest allows tagged vlans to be specified as a range like 1000:1010
         This method parses that
@@ -527,18 +527,21 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         out = []
 
-        for list_item in tagList:
-            item_parts = str(list_item).split(":")
+        if isinstance(tagList, list):
+            for list_item in tagList:
+                item_parts = str(list_item).split(":")
 
-            if len(item_parts) == 1:
-                out += item_parts
-            else:
-                vlan_list = list(range(int(item_parts[0]), int(item_parts[1]) + 1))
-                out += map(str, vlan_list)
+                if len(item_parts) == 1:
+                    out += item_parts
+                else:
+                    vlan_list = list(range(int(item_parts[0]), int(item_parts[1]) + 1))
+                    out += map(str, vlan_list)
+        elif isinstance(tagList, str):
+            return unmanaged_vlan_list
 
         return out
 
-    def os9_cleanvlans(intf_label, sw_config, man_fields, default_port, managed_vlan_list):
+    def os9_cleanvlans(intf_label, sw_config, man_fields, default_port, managed_vlan_list, unmanaged_vlan_list):
         """
         Create OS9 commands for cleaning vlans
 
@@ -567,7 +570,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
             existing_vlan_list = os9_searchconfig(sw_config, vlan_interface_types, [vlan_mode], intf_label)
 
             if vlan_mode == "tagged" and "tagged" in man_fields:
-                check_vllist = getTaggedVlanList(man_fields["tagged"])
+                check_vllist = getTaggedVlanList(man_fields["tagged"], unmanaged_vlan_list)
             elif vlan_mode == "untagged" and "untagged" in man_fields:
                 check_vllist = [str(man_fields["untagged"])]
             else:
@@ -623,7 +626,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         return out
 
-    def os9_tagged(intf_label, sw_config, man_fields, default_port):
+    def os9_tagged(intf_label, sw_config, man_fields, default_port, unmanaged_vlan_list):
         """
         Create OS9 commands for "tagged" attribute
 
@@ -644,7 +647,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
         out = []
 
         if "tagged" in man_fields:
-            tagged_vllist = getTaggedVlanList(man_fields["tagged"])
+            tagged_vllist = getTaggedVlanList(man_fields["tagged"], unmanaged_vlan_list)
         else:
             tagged_vllist = []
 
@@ -889,13 +892,13 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
     cur_intf_cfg += os9_stp(intf_fields, running_config, default_port)
 
     # these go directly to output because they are controlling other interfaces
-    cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list)
+    cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list)
     output += cleanvlan_list
 
     untag_list = os9_untagged(intf_label, sw_config, intf_fields, default_port)
     output += untag_list
 
-    tag_list = os9_tagged(intf_label, sw_config, intf_fields, default_port)
+    tag_list = os9_tagged(intf_label, sw_config, intf_fields, default_port, unmanaged_vlan_list)
     output += tag_list
 
     # These change physical interfaces
@@ -1052,8 +1055,9 @@ def OS9_GETCONFIG(sw_config, intf, vlans):
     conf_lines = OS9_GETEXTENDEDCFG(conf_lines)
 
     managed_vlan_list = [str(key) for key, value in vlans.items() if "managed" in value and value["managed"]]
-    vlans = {"Vlan " + str(key): value for key, value in vlans.items()}
-    manifest = merge_dicts(vlans, intf)
+    unmanaged_vlan_list = [str(key) for key, value in vlans.items() if "managed" not in value or not value["managed"]]
+    vlans_os9 = {"Vlan " + str(key): value for key, value in vlans.items()}
+    manifest = merge_dicts(vlans_os9, intf)
 
     out = []
     default_list = []
@@ -1067,7 +1071,7 @@ def OS9_GETCONFIG(sw_config, intf, vlans):
             # Skip fanouts
             continue
 
-        intf_lines,default_list = OS9_GENERATEINTFCONFIG(key, fields, conf_lines, managed_vlan_list, default_list)
+        intf_lines,default_list = OS9_GENERATEINTFCONFIG(key, fields, conf_lines, managed_vlan_list, unmanaged_vlan_list, default_list)
         if len(intf_lines) > 0:
             out += intf_lines
 
