@@ -8,9 +8,15 @@ vlans:
   127:
     name: "MOC-NEU-PUBLIC"
     description: "NEU Public IP for infrastructure"
+  201:
+    name: "MOC-FOREMAN"
+    description: "Foreman Provisioning. SNMP for OpenStack and Ceph"
   204:
     name: "MOC-GENERAL"
     description: "Intranet (routable to internet). SNMP for client nodes."
+  205:
+    name: "MOC-GLUSTER"
+    description: "Gluster/VM migration - oVirt"
   208:
     name: "ESI-CONTROL-PLANE"
     description: "ESI control plane"
@@ -26,6 +32,12 @@ vlans:
   250:
     name: "MOC-PROD-CEPH"
     description: "Ceph public (for clients)"
+  277:
+    name: "MOC-MAAS"
+    description: "MAAS Internal Network"
+  280:
+    name: "MOC-MAAS-NIC1"
+    description: "MAAS Internal Network 2"
   351:
     name: ESI-351
     description: ESI Vlan 351
