@@ -35,12 +35,12 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
-      - 464:519
-      - 911
       - 250
       - 213
-      - 464:519
+      - 464:499
+      - 501:519
       - 700
+      - 911
       - 3801
     portmode: "hybrid"
     mtu: 9216
@@ -51,12 +51,12 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
-      - 464:519
-      - 911
       - 250
       - 213
-      - 464:519
+      - 464:499
+      - 501:519
       - 700
+      - 911
       - 3801
     portmode: "hybrid"
     mtu: 9216
@@ -67,12 +67,12 @@ interfaces:
     state: "up"
     untagged: 214
     tagged:
-      - 464:519
-      - 911
       - 250
       - 213
-      - 464:519
+      - 464:499
+      - 501:519
       - 700
+      - 911
       - 3801
     portmode: "hybrid"
     mtu: 9216
