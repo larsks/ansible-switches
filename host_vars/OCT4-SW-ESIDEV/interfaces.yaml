@@ -169,15 +169,7 @@ interfaces:
     description: "OCT-CORE-3 LAG"
     state: "up"
     portmode: "trunk"
-    tagged:
-      - 213
-      # ESI
-      - 351:499
-      - 520:622
-      - 623
-      - 624:630
-      - 910
-      - 911
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:
@@ -188,3 +180,6 @@ interfaces:
   Vlan 911:
     state: "up"
     ip4: "10.2.4.100/19"
+  Vlan 931:
+    state: "up"
+    ip4: "10.81.2.43/20"

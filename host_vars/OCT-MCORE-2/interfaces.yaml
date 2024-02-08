@@ -2,53 +2,33 @@ interfaces:
   GigabitEthernet 1/1:
     description: "####-SW-MGMT Link"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
-      - 930
+    tagged: "all"
   GigabitEthernet 1/2:
     description: "####-SW-MGMT Link"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
-      - 930
+    tagged: "all"
   GigabitEthernet 1/3:
     description: "####-SW-MGMT Link"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
-      - 930
+    tagged: "all"
   GigabitEthernet 1/4:
     description: "####-SW-MGMT Link"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
-      - 930
+    tagged: "all"
   GigabitEthernet 1/5:
     description: "####-SW-MGMT Link"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
-      - 930
+    tagged: "all"
   GigabitEthernet 1/6:
     state: "down"
   GigabitEthernet 1/7:
@@ -72,19 +52,9 @@ interfaces:
   GigabitEthernet 1/16:
     state: "down"
   GigabitEthernet 1/17:
-    description: "OCT-CORE-3 MGMT"
-    state: "up"
-    portmode: "access"
-    untagged: 930
-    stp:
-      edgeport: true
+    state: "down"
   GigabitEthernet 1/18:
-    description: "OCT-CORE-4 MGMT"
-    state: "up"
-    portmode: "access"
-    untagged: 930
-    stp:
-      edgeport: true
+    state: "down"
   GigabitEthernet 1/19:
     state: "down"
   GigabitEthernet 1/20:
@@ -136,11 +106,10 @@ interfaces:
   GigabitEthernet 1/43:
     state: "down"
   GigabitEthernet 1/44:
-    description: "#### Unknown Netgear"
+    description: "OCT-MCORE-1 Link"
     state: "up"
     portmode: "access"
-    tagged:
-      - 930
+    tagged: "all"
   GigabitEthernet 1/45:
     state: "down"
   GigabitEthernet 1/46:
@@ -156,22 +125,21 @@ interfaces:
   TenGigabitEthernet 1/51:
     description: "OCT-CORE-3 Port 33"
     state: "up"
+    mtu: 9216
   TenGigabitEthernet 1/52:
     description: "OCT-CORE-4 Port 34"
     state: "up"
+    mtu: 9216
   Port-channel 10:
     description: "OCT-CORE-1 and OCT-CORE-2 LAG"
     state: "up"
+    mtu: 9216
     portmode: "trunk"
-    tagged:
-      - 910
-      - 911
-      - 912
-      - 913
+    tagged: "all"
     lacp-rate: "fast"
     lacp-members-active:
       - "TenGigabitEthernet 1/51"
       - "TenGigabitEthernet 1/52"
-  Vlan 930:
+  Vlan 931:
     state: "up"
-    ip4: "10.80.1.12/20"
+    ip4: "10.81.1.12/20"

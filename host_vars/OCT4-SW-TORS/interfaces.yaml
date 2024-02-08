@@ -90,7 +90,6 @@ interfaces:
     portmode: "hybrid"
     untagged: 127
     tagged:
-      - 207
       - 213
       - 911
   TenGigabitEthernet 1/19:
@@ -109,8 +108,6 @@ interfaces:
     mtu: 9216
     portmode: "hybrid"
     untagged: 127
-    tagged:
-      - 207
   TenGigabitEthernet 1/22:
     managed: true
   TenGigabitEthernet 1/23:
@@ -121,16 +118,12 @@ interfaces:
     mtu: 9216
     portmode: "hybrid"
     untagged: 127
-    tagged:
-      - 207
   TenGigabitEthernet 1/25:
     description: "OCT4-5 2nd"
     state: "up"
     mtu: 9216
     portmode: "hybrid"
     untagged: 127
-    tagged:
-      - 207
   TenGigabitEthernet 1/26:
     state: "down"
   TenGigabitEthernet 1/27:
@@ -269,37 +262,15 @@ interfaces:
     description: "OCT-CORE-3 LAG"
     state: "up"
     portmode: "trunk"
-    tagged:
-      # CSAIL
-      - 10
-      # MOC Public IPs
-      - 127
-      # MOC
-      - 204
-      - 207
-      - 208
-      - 213
-      - 250
-      # ESI
-      - 351:499
-      - 520:622
-      - 623
-      - 624:630
-      # MGMT
-      - 911
-      - 913
-      # CloudLab Testing
-      - 920
-      - 921
-      # CSAIL
-      - 3801
-      - 3802
-      - 3803
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:
       - "fortyGigE 1/53"
       - "fortyGigE 1/54"
-  Vlan 207:
+  Vlan 911:
     state: "up"
-    ip4: "10.1.0.14/24"
+    ip4: "10.2.4.90/19"
+  Vlan 931:
+    state: "up"
+    ip4: "10.81.2.41/20"

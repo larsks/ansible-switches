@@ -101,8 +101,7 @@ interfaces:
     description: "MGMT uplink"
     state: "up"
     portmode: "trunk"
-    tagged:
-      - 930
+    tagged: "all"
   TenGigabitEthernet 1/33:
     description: "CL-MASS-1-CTRL"
     state: "up"
@@ -170,9 +169,7 @@ interfaces:
     description: "OCT-CORE-3 Uplink"
     state: "up"
     portmode: "trunk"
-    tagged:
-      - 84
-      - 910
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:
@@ -181,6 +178,6 @@ interfaces:
   Vlan 910:
     state: "up"
     ip4: "10.0.0.3/22"
-  Vlan 930:
+  Vlan 931:
     state: "up"
-    ip4: "10.80.2.1/20"
+    ip4: "10.81.2.1/20"
