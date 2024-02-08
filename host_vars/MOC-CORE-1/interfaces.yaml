@@ -206,6 +206,7 @@ interfaces:
     mlag: "Port-channel 20"
     stp:
       disabled: true
+      rootguard: true
   Port-channel 30:
     description: "Harvard LAG"
     state: "up"

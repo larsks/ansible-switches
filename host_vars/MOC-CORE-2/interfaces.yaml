@@ -238,6 +238,7 @@ interfaces:
     mtu: 9216
     stp:
       disabled: true
+      rootguard: true
     lacp-rate: "fast"
     lacp-members-active:
       - "hundredGigE 1/25"
@@ -246,8 +247,7 @@ interfaces:
     description: "R8PAC23-Uplink"
     state: "up"
     portmode: "trunk"
-    tagged:
-      - 930
+    tagged: "all"
     mtu: 9216
     lacp-rate: "fast"
     lacp-members-active:

@@ -1,36 +1,161 @@
 interfaces:
   twentyFiveGigE 1/1:
-    state: "down"
+    description: "NERC-LenA100-U23-Openstack"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2146
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/2:
-    state: "down"
+    description: "NERC-LenA100-U24-Openstack"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2146
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/3:
-    state: "down"
+    description: "NERC-LenA100-U25-Openstack"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2146
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/4:
-    state: "down"
+    description: "NERC-LenA100-U26-Openstack"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2146
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/5:
-    state: "down"
+    description: "NERC-LenA100-U27-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/6:
-    state: "down"
+    description: "NERC-LenA100-U28-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/7:
-    state: "down"
+    description: "NERC-LenA100-U30-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/8:
-    state: "down"
+    description: "NERC-LenA100-U31-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
   twentyFiveGigE 1/9:
-    state: "down"
+    description: "NERC-LenA100-U32-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/10:
-    state: "down"
+    description: "NERC-LenA100-U33-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/11:
-    state: "down"
+    description: "NERC-LenA100-U34-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/12:
-    state: "down"
+    description: "NERC-LenA100-U36-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/13:
-    state: "down"
+    description: "NERC-LenA100-U37-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/14:
-    state: "down"
+    description: "NERC-LenA100-U38-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/15:
-    state: "down"
+    description: "NERC-LenA100-U39-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/16:
-    state: "down"
+    description: "NERC-LenA100-U40-Openshift"
+    state: "up"
+    mtu: 9216
+    portmode: "hybrid"
+    tagged:
+      - 2170
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/17:
     state: "down"
   twentyFiveGigE 1/18:
