@@ -914,9 +914,6 @@ vlans:
   2170:
     name: "NERC-Openshift-OBM-2"
     description: "NERC Openshift OBM Network 2 10.30.0.0 /22"
-  2171:
-    name: "NERC-Openshift-Dev-Mgmt"
-    description: "NERC Openshift Device Management 10.30.4.0 /24"
   2172:
     name: "NERC-Openshift-Prod-Frontend"
     description: "NERC Openshift Prod Frontend 10.30.6.0 /23"
