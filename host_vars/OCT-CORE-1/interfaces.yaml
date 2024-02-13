@@ -100,6 +100,8 @@ interfaces:
     lacp-members-active:
       - "TenGigabitEthernet 1/34"
     mlag: "Port-channel 20"
+    stp:
+      rootguard: true
   Port-channel 40:
     description: "MOC-CORE-1 and MOC-CORE-2"
     state: "up"
@@ -124,6 +126,7 @@ interfaces:
     mlag: "Port-channel 40"
     stp:
       disabled: true
+      rootguard: true
   Port-channel 50:
     description: "AL2S Uplink"
     state: "up"
@@ -146,6 +149,7 @@ interfaces:
     mlag: "Port-channel 50"
     stp:
       disable: true
+      rootguard: true
   Port-channel 100:
     description: "OCT-CORE-2 VLT LAG"
     state: "up"

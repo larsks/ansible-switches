@@ -68,6 +68,7 @@ interfaces:
       - 931
     stp:
       edgeport: true
+      bpduguard: true
   GigabitEthernet 1/32:
     state: "down"
   GigabitEthernet 1/33:

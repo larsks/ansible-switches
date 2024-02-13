@@ -106,6 +106,8 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/1"
     mlag: "Port-channel 20"
+    stp:
+      rootguard: true
   Port-channel 30:
     description: "MOC-R4PAC## Link"
     state: "up"
@@ -116,6 +118,8 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/2"
     mlag: "Port-channel 30"
+    stp:
+      rootguard: true
   Port-channel 40:
     description: "MOC-R4PAC## Link"
     state: "up"
@@ -126,6 +130,8 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/3"
     mlag: "Port-channel 40"
+    stp:
+      rootguard: true
   Port-channel 50:
     description: "MOC-R4PAC## Link"
     state: "up"
@@ -136,6 +142,8 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/4"
     mlag: "Port-channel 50"
+    stp:
+      rootguard: true
   Port-channel 60:
     description: "MOC-R4PAC## Link"
     state: "up"
@@ -146,6 +154,8 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/5"
     mlag: "Port-channel 60"
+    stp:
+      rootguard: true
   Port-channel 100:
     description: "MOC-CORE-4 VLT LAG"
     state: "up"
@@ -163,6 +173,8 @@ interfaces:
     lacp-members-active:
       - "TenGigabitEthernet 1/33"
     mlag: "Port-channel 101"
+    stp:
+      rootguard: true
   Vlan 930:
     state: "up"
     ip4: "10.80.1.3/20"

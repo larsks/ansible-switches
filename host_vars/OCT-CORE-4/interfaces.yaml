@@ -102,6 +102,8 @@ interfaces:
     lacp-members-active:
       - "TenGigabitEthernet 1/33"
     mlag: "Port-channel 300"
+    stp:
+      rootguard: true
   Vlan 931:
     state: "up"
     ip4: "10.81.1.4/20"

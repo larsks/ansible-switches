@@ -2079,6 +2079,12 @@ vlans:
     name: oct-cloudlab-2800
     description: OCT CloudLab Vlan 2800
     managed: true
+  3035:
+    name: "UMASS-3035-FabricV6"
+    description: "IPv6 Subnet 1 for Fabric"
+  3036:
+    name: "UMASS-3036-FabricV6"
+    description: "IPv6 Subnet 2 for Fabric"
   3100:
     name: "AL2S-3100"
     description: "AL2S VLAN 3100 for Fabric"

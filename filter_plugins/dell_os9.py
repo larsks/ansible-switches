@@ -423,7 +423,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
                     # this port is an edge port
                     conf_line = f"spanning-tree {stp_type} edge-port"
                     if "bpduguard" in stp_fields and stp_fields["bpduguard"]:
-                        conf_line += " bpduguard shutdown-on-violation"
+                        conf_line += " bpduguard"
                     elif any("bpduguard" in item for item in running_fields):
                         # existing bpduguard where it shouldn't be
                         out.append(f"no spanning-tree {stp_type} edge-port")
