@@ -51,7 +51,14 @@ interfaces:
 * `mtu` Sets the MTU of the interface (Integer 576-9416)
 * `fec` If false, forward-error-correction is disabled on the interface (Boolean)
 * `autoneg` If false, auto-negotiation is disabled on the interface (Boolean)
-* `stp-edge` Sets the port as an edge-port for STP (Boolean)
+* `stp` Sets STP Parameters
+  * `edgeport` Sets whether port should be an edge port (Boolean)
+  * `bpduguard` Enables BPDUguard on an interface (Boolean)
+  * `rootguard` Enables Rootguard on an interface (Boolean)
+  * `disabled` Disables STP on the interface (Boolean)
+* `fanout` Sets fanout configuration
+  * `mode` Sets mode (`single`, `dual`, or `quad`)
+  * `speed` Sets the fanout speed (`10G`, `25G`, or `40G`)
 * `managed` If true, this interface will not be configured by ansible. Works for both VLANs and interfaces (Boolean)
 * `portmode` L2 portmode of an interface (String "access", "trunk", or "hybrid")
 * `untagged` Single vlan to untag, requires portmode access or hybrid (Integer 2-4094)
@@ -75,12 +82,3 @@ Switches will need some manual configuration before being able to be set up from
 1. Set the ssh user `username admin password <DEFAULT_OS9_PASSWD>`
 1. Enable ssh server `ip ssh server enable`
 1. Set the access IP (usually `managementethernet 1/1`)
-
-## Future Improvements
-
-* Validation scripts that don't require access to switches
-* Case-insensitive matching for interface labels
-* VLAN groups to be defined in tagged/untagged sections
-* Switch system configuration (STP, etc.)
-* Add "speed" field for some interfaces
-* Ability to map connections between devices
