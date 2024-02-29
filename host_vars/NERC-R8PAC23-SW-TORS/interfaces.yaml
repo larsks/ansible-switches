@@ -6,6 +6,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 2145
     tagged:
+      - 2141
       - 2143
       - 2144
       - 2146
@@ -20,6 +21,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 2145
     tagged:
+      - 2141
       - 2143
       - 2144
       - 2146
@@ -34,6 +36,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 2145
     tagged:
+      - 2141
       - 2143
       - 2144
       - 2146
@@ -48,6 +51,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 2145
     tagged:
+      - 2141
       - 2143
       - 2144
       - 2146
