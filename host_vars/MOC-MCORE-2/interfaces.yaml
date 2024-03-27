@@ -24,9 +24,15 @@ interfaces:
     portmode: "trunk"
     tagged: "all"
   GigabitEthernet 1/7:
-    state: "down"
+    description: "MOC-R4PAC04-SW-MGMT"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
   GigabitEthernet 1/8:
-    state: "down"
+    description: "MOC-R4PAC02-SW-MGMT"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
   GigabitEthernet 1/9:
     state: "down"
   GigabitEthernet 1/10:
