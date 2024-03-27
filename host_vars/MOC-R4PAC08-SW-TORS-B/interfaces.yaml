@@ -130,7 +130,12 @@ interfaces:
   hundredGigE 1/16:
     state: "down"
   hundredGigE 1/17:
-    state: "down"
+    fanout:
+      type: "single"
+      speed: "40G"
+  fortyGigE 1/17/1:
+    #description: U29-S1 (NVME)
+    managed: true
   hundredGigE 1/18:
     state: "down"
   hundredGigE 1/19:

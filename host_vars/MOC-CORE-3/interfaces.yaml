@@ -20,9 +20,13 @@ interfaces:
     state: "up"
     mtu: 9216
   hundredGigE 1/6:
-    state: "down"
+    description: "MOC-R4PAC04-SW-TORS Port 53"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/7:
-    state: "down"
+    description: "MOC-R4PAC02-SW-TORS Port 53"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/8:
     state: "down"
   hundredGigE 1/9:
@@ -154,6 +158,30 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/5"
     mlag: "Port-channel 60"
+    stp:
+      rootguard: true
+  Port-channel 80:
+    description: "MOC-R4PAC04 Link"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/6"
+    mlag: "Port-channel 80"
+    stp:
+      rootguard: true
+  Port-channel 90:
+    description: "MOC-R4PAC02 Link"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/7"
+    mlag: "Port-channel 90"
     stp:
       rootguard: true
   Port-channel 100:
