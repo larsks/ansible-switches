@@ -273,8 +273,6 @@ interfaces:
     tagged:
       # CSAIL
       - 3801
-      - 3802
-      - 3803
     mode: "lacp"
     lacp-rate: "fast"
     lacp-members-active:
