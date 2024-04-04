@@ -313,9 +313,13 @@ interfaces:
   TenGigabitEthernet 1/44:
     state: "down"
   TenGigabitEthernet 1/45:
-    state: "down"
+    description: "OCT1-SW-MGMT Port 51"
+    state: "up"
+    mtu: 9216
   TenGigabitEthernet 1/46:
-    state: "down"
+    description: "OCT1-SW-MGMT Port 52"
+    state: "up"
+    mtu: 9216
   TenGigabitEthernet 1/47:
     state: "down"
   TenGigabitEthernet 1/48:
@@ -349,6 +353,16 @@ interfaces:
     lacp-members-active:
       - "fortyGigE 1/53"
       - "fortyGigE 1/54"
+  Port-channel 101:
+    description: "OCT1-SW-MGMT Uplink"
+    state: "up"
+    mtu: 9216
+    portmode: "trunk"
+    tagged: "all"
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "TenGigabitEthernet 1/45"
+      - "TenGigabitEthernet 1/46"
   Vlan 910:
     state: "up"
     ip4: "10.0.0.4/22"
