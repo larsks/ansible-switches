@@ -3,7 +3,7 @@ interfaces:
     description: "u38-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -11,7 +11,7 @@ interfaces:
     description: "u37-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -19,7 +19,7 @@ interfaces:
     description: "u36-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -27,7 +27,7 @@ interfaces:
     description: "u35-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -35,7 +35,7 @@ interfaces:
     description: "u34-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -43,7 +43,7 @@ interfaces:
     description: "u33-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -51,7 +51,7 @@ interfaces:
     description: "u32-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -59,7 +59,7 @@ interfaces:
     description: "u31-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -67,7 +67,7 @@ interfaces:
     description: "u30-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -75,7 +75,7 @@ interfaces:
     description: "u29-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -83,7 +83,7 @@ interfaces:
     description: "u28-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -91,7 +91,7 @@ interfaces:
     description: "u27-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -99,7 +99,7 @@ interfaces:
     description: "u26-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -107,7 +107,7 @@ interfaces:
     description: "u25-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -115,7 +115,7 @@ interfaces:
     description: "u24-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -123,7 +123,7 @@ interfaces:
     description: "u23-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -131,7 +131,7 @@ interfaces:
     description: "u22-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -139,7 +139,7 @@ interfaces:
     description: "u21-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -147,7 +147,7 @@ interfaces:
     description: "u20-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -155,7 +155,7 @@ interfaces:
     description: "u19-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -163,7 +163,7 @@ interfaces:
     description: "u18-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
@@ -171,158 +171,50 @@ interfaces:
     description: "u17-ipmi"
     state: "up"
     portmode: "access"
-    untagged: 910
+    untagged: 911
     stp:
       edgeport: true
       bpduguard: true
   GigabitEthernet 1/23:
-    description: "u16-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/24:
-    description: "u15-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/25:
-    description: "u14-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/26:
-    description: "u13-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/27:
-    description: "u12-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/28:
-    description: "u11-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/29:
-    description: "u10-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/30:
-    description: "u9-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/31:
-    description: "u8-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/32:
-    description: "u7-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/33:
-    description: "u6-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/34:
-    description: "u5-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/35:
-    description: "u4-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/36:
-    description: "u3-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/37:
-    description: "u2-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/38:
-    description: "u1-ipmi"
-    state: "up"
-    portmode: "access"
-    untagged: 910
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/39:
     state: "down"
   GigabitEthernet 1/40:
     state: "down"
   GigabitEthernet 1/41:
-    description: "PDU-L"
-    state: "up"
-    portmode: "access"
-    untagged: 933
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/42:
-    description: "PDU-R"
-    state: "up"
-    portmode: "access"
-    untagged: 933
-    stp:
-      edgeport: true
-      bpduguard: true
+    state: "down"
   GigabitEthernet 1/43:
     state: "down"
   GigabitEthernet 1/44:
@@ -352,7 +244,7 @@ interfaces:
     state: "up"
     mtu: 9216
   Port-channel 101:
-    description: "OCT2-SW-MGMT Uplink"
+    description: "OCT4-SW-TORS Uplink"
     state: "up"
     mtu: 9216
     portmode: "trunk"
@@ -363,4 +255,4 @@ interfaces:
       - "TenGigabitEthernet 1/52"
   Vlan 931:
     state: "up"
-    ip4: "10.81.2.22/20"
+    ip4: "10.81.2.42/20"

@@ -344,15 +344,15 @@ interfaces:
   TenGigabitEthernet 1/50:
     state: "down"
   TenGigabitEthernet 1/51:
-    description: "OCT2-SW-MGMT Port 45"
+    description: "OCT1-SW-MGMT Port 45"
     state: "up"
     mtu: 9216
   TenGigabitEthernet 1/52:
-    description: "OCT2-SW-MGMT Port 46"
+    description: "OCT1-SW-MGMT Port 46"
     state: "up"
     mtu: 9216
   Port-channel 101:
-    description: "OCT2-SW-MGMT Uplink"
+    description: "OCT1-SW-MGMT Uplink"
     state: "up"
     mtu: 9216
     portmode: "trunk"
@@ -363,4 +363,4 @@ interfaces:
       - "TenGigabitEthernet 1/52"
   Vlan 931:
     state: "up"
-    ip4: "10.81.2.22/20"
+    ip4: "10.81.2.12/20"
