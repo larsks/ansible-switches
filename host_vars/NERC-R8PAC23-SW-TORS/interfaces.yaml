@@ -236,7 +236,13 @@ interfaces:
   twentyFiveGigE 1/32:
     state: "down"
   twentyFiveGigE 1/33:
-    state: "down"
+    description: "gpu-smm-daisychain"
+    state: "up"
+    portmode: "access"
+    untagged: 911
+    stp:
+      edgeport: true
+      bpduguard: true
   twentyFiveGigE 1/34:
     state: "down"
   twentyFiveGigE 1/35:
@@ -293,6 +299,9 @@ interfaces:
     lacp-members-active:
       - "hundredGigE 1/49"
       - "hundredGigE 1/50"
+  Vlan 911:
+    state: "up"
+    ip4: "10.2.18.1/19"
   Vlan 930:
     state: "up"
     ip4: "10.80.3.11/20"

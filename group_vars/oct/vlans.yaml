@@ -875,6 +875,9 @@ vlans:
   931:
     name: "OCT-SWMGMT"
     description: "Switch management network for OCT"
+  933:
+    name: "OCT-PDU"
+    description: "PDU network for OCT"
   2500:
     name: oct-cloudlab-2500
     description: OCT CloudLab Vlan 2500

@@ -66,6 +66,7 @@ interfaces:
     tagged:
       - 84
       - 931
+      - 933
     stp:
       edgeport: true
       bpduguard: true
