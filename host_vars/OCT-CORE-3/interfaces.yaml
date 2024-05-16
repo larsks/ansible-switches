@@ -118,13 +118,21 @@ interfaces:
   hundredGigE 1/22:
     state: "down"
   hundredGigE 1/23:
-    state: "down"
+    description: "OCT10-SW-TORS-A Port 29"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/24:
-    state: "down"
+    description: "OCT10-SW-TORS-A Port 30"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/25:
-    state: "down"
+    description: "OCT10-SW-TORS-A Port 31"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/26:
-    state: "down"
+    description: "OCT10-SW-TORS-A Port 32"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/27:
     description: "OCT-CORE-4 Port 27 VLT"
     state: "up"
@@ -276,6 +284,20 @@ interfaces:
     lacp-rate: "fast"
     lacp-members-active:
       - "fortyGigE 1/15/1"
+    stp:
+      rootguard: true
+  Port-channel 9:
+    description: "OCT10-SW-TORS-A LAG"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/23"
+      - "hundredGigE 1/24"
+      - "hundredGigE 1/25"
+      - "hundredGigE 1/26"
     stp:
       rootguard: true
   Port-channel 10:
