@@ -65,6 +65,7 @@ interfaces:
     portmode: "trunk"
     tagged:
       - 84
+      - 910
       - 931
       - 933
     stp:

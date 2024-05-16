@@ -4,55 +4,55 @@ interfaces:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/1/1:
-    #description: "U1-S1-P1"
+    description: "U1-S1-P1"
     managed: true
   twentyFiveGigE 1/1/2:
-    #description: "U1-S3-P1"
+    description: "U1-S3-P1"
     managed: true
   twentyFiveGigE 1/1/3:
-    #description: "U3-S1-P1"
+    description: "U3-S1-P1"
     managed: true
   twentyFiveGigE 1/1/4:
-    #description: "U3-S3-P1"
+    description: "U3-S3-P1"
     managed: true
   hundredGigE 1/2:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/2/1:
-    #description: "U5-S1-P1"
+    description: "U5-S1-P1"
     managed: true
   twentyFiveGigE 1/2/2:
-    #description: "U5-S3-P1"
+    description: "U5-S3-P1"
     managed: true
   twentyFiveGigE 1/2/3:
-    #description: "U7-S1-P1"
+    description: "U7-S1-P1"
     managed: true
   twentyFiveGigE 1/2/4:
-    #description: "U7-S3-P1"
+    description: "U7-S3-P1"
     managed: true
   hundredGigE 1/3:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/3/1:
-    #description: "U9-S1-P1"
+    description: "U9-S1-P1"
     managed: true
   twentyFiveGigE 1/3/2:
-    #description: "U9-S3-P1"
+    description: "U9-S3-P1"
     managed: true
   twentyFiveGigE 1/3/3:
-    #description: "U11-S1-P1"
+    description: "U11-S1-P1"
     managed: true
   twentyFiveGigE 1/3/4:
-    #description: "U11-S3-P1"
+    description: "U11-S3-P1"
     managed: true
   hundredGigE 1/4:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/4/1:
-    #description: "U13-S1-P1"
+    description: "U13-S1-P1"
     managed: true
   twentyFiveGigE 1/4/2:
     description: "U13-S3-P1"
@@ -68,58 +68,58 @@ interfaces:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/5/1:
-    #description: "U17-S1-P1"
+    description: "U17-S1-P1"
     managed: true
   twentyFiveGigE 1/5/2:
-    #description: "U17-S3-P1"
+    description: "U17-S3-P1"
     managed: true
   twentyFiveGigE 1/5/3:
-    #description: "U19-S1-P1"
+    description: "U19-S1-P1"
     managed: true
   twentyFiveGigE 1/5/4:
-    #description: "U19-S3-P1"
+    description: "U19-S3-P1"
     managed: true
   hundredGigE 1/6:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/6/1:
-    #description: "U21-S1-P1"
+    description: "U21-S1-P1"
     managed: true
   twentyFiveGigE 1/6/2:
-    #description: "U21-S3-P1"
+    description: "U21-S3-P1"
     managed: true
   twentyFiveGigE 1/6/3:
-    #description: "U23-S1-P1"
+    description: "U23-S1-P1"
     managed: true
   twentyFiveGigE 1/6/4:
-    #description: "U23-S3-P1"
+    description: "U23-S3-P1"
     managed: true
   hundredGigE 1/7:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/7/1:
-    #description: "U25-S1-P1"
+    description: "U25-S1-P1"
     managed: true
   twentyFiveGigE 1/7/2:
-    #description: "U25-S3-P1"
+    description: "U25-S3-P1"
     managed: true
   twentyFiveGigE 1/7/3:
-    #description: "U27-S1-P1"
+    description: "U27-S1-P1"
     managed: true
   twentyFiveGigE 1/7/4:
-    #description: "U27-S3-P1"
+    description: "U27-S3-P1"
     managed: true
   hundredGigE 1/8:
     fanout:
       type: "quad"
       speed: "25G"
   twentyFiveGigE 1/8/1:
-    #description: "U29-S1-P1"
+    description: "U29-S1-P1"
     managed: true
   twentyFiveGigE 1/8/2:
-    #description: "U29-S3-P1"
+    description: "U29-S3-P1"
     managed: true
   twentyFiveGigE 1/8/3:
     state: "down"
@@ -130,135 +130,135 @@ interfaces:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/9/1:
-    #description: "U31-S1A-P1"
+    description: "U31-S1A-P1"
     managed: true
   TenGigabitEthernet 1/9/2:
-    #description: "U31-S1B-P1"
+    description: "U31-S1B-P1"
     managed: true
   TenGigabitEthernet 1/9/3:
-    #description: "U31-S1C-P1"
+    description: "U31-S1C-P1"
     managed: true
   TenGigabitEthernet 1/9/4:
-    #description: "U31-S1D-P1"
+    description: "U31-S1D-P1"
     managed: true
   hundredGigE 1/10:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/10/1:
-    #description: "U31-S3A-P1"
+    description: "U31-S3A-P1"
     managed: true
   TenGigabitEthernet 1/10/2:
-    #description: "U31-S3B-P1"
+    description: "U31-S3B-P1"
     managed: true
   TenGigabitEthernet 1/10/3:
-    #description: "U31-S3C-P1"
+    description: "U31-S3C-P1"
     managed: true
   TenGigabitEthernet 1/10/4:
-    #description: "U31-S3D-P1"
+    description: "U31-S3D-P1"
     managed: true
   hundredGigE 1/11:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/11/1:
-    #description: "U33-S1A-P1"
+    description: "U33-S1A-P1"
     managed: true
   TenGigabitEthernet 1/11/2:
-    #description: "U33-S1B-P1"
+    description: "U33-S1B-P1"
     managed: true
   TenGigabitEthernet 1/11/3:
-    #description: "U33-S1C-P1"
+    description: "U33-S1C-P1"
     managed: true
   TenGigabitEthernet 1/11/4:
-    #description: "U33-S1D-P1"
+    description: "U33-S1D-P1"
     managed: true
   hundredGigE 1/12:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/12/1:
-    #description: "U33-S3A-P1"
+    description: "U33-S3A-P1"
     managed: true
   TenGigabitEthernet 1/12/2:
-    #description: "U33-S3B-P1"
+    description: "U33-S3B-P1"
     managed: true
   TenGigabitEthernet 1/12/3:
-    #description: "U33-S3C-P1"
+    description: "U33-S3C-P1"
     managed: true
   TenGigabitEthernet 1/12/4:
-    #description: "U33-S3D-P1"
+    description: "U33-S3D-P1"
     managed: true
   hundredGigE 1/13:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/13/1:
-    #description: "U35-S1A-P1"
+    description: "U35-S1A-P1"
     managed: true
   TenGigabitEthernet 1/13/2:
-    #description: "U35-S1B-P1"
+    description: "U35-S1B-P1"
     managed: true
   TenGigabitEthernet 1/13/3:
-    #description: "U35-S1C-P1"
+    description: "U35-S1C-P1"
     managed: true
   TenGigabitEthernet 1/13/4:
-    #description: "U35-S1D-P1"
+    description: "U35-S1D-P1"
     managed: true
   hundredGigE 1/14:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/14/1:
-    #description: "U35-S3A-P1"
+    description: "U35-S3A-P1"
     managed: true
   TenGigabitEthernet 1/14/2:
-    #description: "U35-S3B-P1"
+    description: "U35-S3B-P1"
     managed: true
   TenGigabitEthernet 1/14/3:
-    #description: "U35-S3C-P1"
+    description: "U35-S3C-P1"
     managed: true
   TenGigabitEthernet 1/14/4:
-    #description: "U35-S3D-P1"
+    description: "U35-S3D-P1"
     managed: true
   hundredGigE 1/15:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/15/1:
-    #description: "U37-S1A-P1"
+    description: "U37-S1A-P1"
     managed: true
   TenGigabitEthernet 1/15/2:
-    #description: "U37-S1B-P1"
+    description: "U37-S1B-P1"
     managed: true
   TenGigabitEthernet 1/15/3:
-    #description: "U37-S1C-P1"
+    description: "U37-S1C-P1"
     managed: true
   TenGigabitEthernet 1/15/4:
-    #description: "U37-S1D-P1"
+    description: "U37-S1D-P1"
     managed: true
   hundredGigE 1/16:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/16/1:
-    #description: "U37-S3A-P1"
+    description: "U37-S3A-P1"
     managed: true
   TenGigabitEthernet 1/16/2:
-    #description: "U37-S3B-P1"
+    description: "U37-S3B-P1"
     managed: true
   TenGigabitEthernet 1/16/3:
-    #description: "U37-S3C-P1"
+    description: "U37-S3C-P1"
     managed: true
   TenGigabitEthernet 1/16/4:
-    #description: "U37-S3D-P1"
+    description: "U37-S3D-P1"
     managed: true
   hundredGigE 1/17:
     fanout:
       type: "single"
       speed: "40G"
   fortyGigE 1/17/1:
-    #description: U29-S1 (NVME)
+    description: U29-S1 (NVME)
     managed: true
   hundredGigE 1/18:
     state: "down"

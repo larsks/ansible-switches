@@ -864,52 +864,62 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
     running_config = OS9_GETINTFCONFIG(intf_label, sw_config)
 
+    is_managed = "managed" in intf_fields and intf_fields["managed"]
+    is_vlan = "vlan" in intf_label.lower()
+
     cur_intf_cfg = []
     output = []
 
     portmode_out,default_port = os9_portmode(intf_fields, running_config)
-    if default_port:
+    if not is_managed and default_port:
         default_list.append(intf_label)
 
+    if is_managed:
+        default_port = False
+
     # General
-    cur_intf_cfg += os9_name(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_description(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_state(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_mtu(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_autoneg(intf_label, intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_fec(intf_fields, running_config, default_port)
-    # L3
-    cur_intf_cfg += os9_ip4(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_ip6(intf_fields, running_config, default_port)
-    # LAG
-    cur_intf_cfg += os9_lagmembers(intf_fields, running_config, default_port)
-    cur_intf_cfg += os9_lacprate(intf_fields, running_config, default_port)
+    # Only set name and description on managed ports that are not vlans or if not managed
+    if (is_managed and not is_vlan) or not is_managed:
+        cur_intf_cfg += os9_name(intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_description(intf_fields, running_config, default_port)
 
-    # VLAN interfaces / L2
-    cur_intf_cfg += portmode_out
-    cur_intf_cfg += os9_mlag(intf_fields, running_config, default_port)
-    # STP
-    cur_intf_cfg += os9_stp(intf_fields, running_config, default_port)
+    if not is_managed:
+        cur_intf_cfg += os9_state(intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_mtu(intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_autoneg(intf_label, intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_fec(intf_fields, running_config, default_port)
+        # L3
+        cur_intf_cfg += os9_ip4(intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_ip6(intf_fields, running_config, default_port)
+        # LAG
+        cur_intf_cfg += os9_lagmembers(intf_fields, running_config, default_port)
+        cur_intf_cfg += os9_lacprate(intf_fields, running_config, default_port)
 
-    # these go directly to output because they are controlling other interfaces
-    cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list)
-    output += cleanvlan_list
+        # VLAN interfaces / L2
+        cur_intf_cfg += portmode_out
+        cur_intf_cfg += os9_mlag(intf_fields, running_config, default_port)
+        # STP
+        cur_intf_cfg += os9_stp(intf_fields, running_config, default_port)
 
-    untag_list = os9_untagged(intf_label, sw_config, intf_fields, default_port)
-    output += untag_list
+        # these go directly to output because they are controlling other interfaces
+        cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list)
+        output += cleanvlan_list
 
-    tag_list = os9_tagged(intf_label, sw_config, intf_fields, default_port, unmanaged_vlan_list)
-    output += tag_list
+        untag_list = os9_untagged(intf_label, sw_config, intf_fields, default_port)
+        output += untag_list
 
-    # These change physical interfaces
-    lacp_members_cleaned = os9_cleanlacpmembers(intf_label, sw_config, intf_fields, default_list)
-    output += lacp_members_cleaned
+        tag_list = os9_tagged(intf_label, sw_config, intf_fields, default_port, unmanaged_vlan_list)
+        output += tag_list
 
-    lacp_members_active_list = os9_lacpmembersactive(intf_label, sw_config, intf_fields)
-    output += lacp_members_active_list
+        # These change physical interfaces
+        lacp_members_cleaned = os9_cleanlacpmembers(intf_label, sw_config, intf_fields, default_list)
+        output += lacp_members_cleaned
 
-    lacp_members_passive_list = os9_lacpmemberspassive(intf_label, sw_config, intf_fields)
-    output += lacp_members_passive_list
+        lacp_members_active_list = os9_lacpmembersactive(intf_label, sw_config, intf_fields)
+        output += lacp_members_active_list
+
+        lacp_members_passive_list = os9_lacpmemberspassive(intf_label, sw_config, intf_fields)
+        output += lacp_members_passive_list
 
     # add interface config line
     if len(cur_intf_cfg) > 0:
@@ -1063,10 +1073,6 @@ def OS9_GETCONFIG(sw_config, intf, vlans):
     default_list = []
 
     for key,fields in manifest.items():
-        if "managed" in fields and fields["managed"]:
-            # Don't edit managed interfaces
-            continue
-
         if "fanout" in fields:
             # Skip fanouts
             continue

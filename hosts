@@ -23,6 +23,10 @@ OCT4-SW-ESIDEV  ansible_host=10.81.2.43 ansible_network_os=dellemc.os9.os9
 OCT9-SW-TORS-A  ansible_host=10.81.2.91 ansible_network_os=dellemc.os9.os9
 OCT9-SW-TORS-B  ansible_host=10.81.2.92 ansible_network_os=dellemc.os9.os9
 OCT9-SW-HYB     ansible_host=10.81.2.95 ansible_network_os=dellemc.os9.os9
+# OCT10 Rack
+OCT10-SW-TORS-A  ansible_host=10.81.2.101 ansible_network_os=dellemc.os9.os9
+OCT10-SW-TORS-B  ansible_host=10.81.2.102 ansible_network_os=dellemc.os9.os9
+OCT10-SW-HYB     ansible_host=10.81.2.105 ansible_network_os=dellemc.os9.os9
 
 [moc]
 # MOC Core Switches
