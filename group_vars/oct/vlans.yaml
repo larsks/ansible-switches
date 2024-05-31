@@ -866,6 +866,9 @@ vlans:
   911:
     name: "OCT-MOC-OBM"
     description: "For OCT/UMass nodes IPMI"
+  915:
+    name: "OCT-CHAMELEON-OBM"
+    description: "For OCT Chameleon OBMs 10.54.0.0 /20"
   920:
     name: "CL-ESI-TESTBED-EXP"
     description: "Cl/ESI testbed network"

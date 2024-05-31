@@ -15,6 +15,8 @@ OCT1-SW-MGMT    ansible_host=10.81.2.12 ansible_network_os=dellemc.os9.os9
 # OCT2 Rack
 OCT2-SW-TORS    ansible_host=10.81.2.21 ansible_network_os=dellemc.os9.os9
 OCT2-SW-MGMT    ansible_host=10.81.2.22 ansible_network_os=dellemc.os9.os9
+# OCT3 Rack
+OCT3-SW-TORS    ansible_host=10.81.2.31 ansible_network_os=dellemc.os9.os9
 # OCT4 Rack
 OCT4-SW-TORS    ansible_host=10.81.2.41 ansible_network_os=dellemc.os9.os9
 OCT4-SW-MGMT  ansible_host=10.81.2.42 ansible_network_os=dellemc.os9.os9

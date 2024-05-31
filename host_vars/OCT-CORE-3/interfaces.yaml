@@ -106,7 +106,9 @@ interfaces:
   hundredGigE 1/16:
     state: "down"
   hundredGigE 1/17:
-    state: "down"
+    description: "OCT3-SW-TORS Port 31 Po4"
+    state: "up"
+    mtu: 9216
   hundredGigE 1/18:
     state: "down"
   hundredGigE 1/19:
@@ -241,6 +243,18 @@ interfaces:
       - "fortyGigE 1/8/1"
     stp:
       rootguard: true
+  Port-channel 4:
+    description: "OCT3-SW-TORS LAG"
+    state: "up"
+    portmode: "trunk"
+    tagged: "all"
+    mtu: 9216
+    lacp-rate: "fast"
+    lacp-members-active:
+      - "hundredGigE 1/17"
+    stp:
+      rootguard: true
+    mlag: "Port-channel 4"
   Port-channel 5:
     description: "OCT4-SW-TORS LAG"
     state: "up"
