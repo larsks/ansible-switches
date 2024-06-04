@@ -1,24 +1,34 @@
 interfaces:
   TenGigabitEthernet 1/1:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/2:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/3:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/4:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/5:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/6:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/7:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/8:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/9:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/10:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/11:
     description: "OCT4-7"
     state: "up"
@@ -32,7 +42,8 @@ interfaces:
       edgeport: true
       bpduguard: true
   TenGigabitEthernet 1/12:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/13:
     description: "OCT4-5"
     state: "up"
@@ -71,9 +82,11 @@ interfaces:
       bpduguard: true
   TenGigabitEthernet 1/15:
     #description: "OCT4-3"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/16:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/17:
     description: "OCT4-1"
     state: "up"
@@ -127,7 +140,8 @@ interfaces:
       edgeport: true
       bpduguard: true
   TenGigabitEthernet 1/22:
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/23:
     state: "down"
   TenGigabitEthernet 1/24:
@@ -168,52 +182,68 @@ interfaces:
     mtu: 9216
   TenGigabitEthernet 1/33:
     # description: OCT4-CHA3-1A
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/34:
     # description: OCT4-CHA3-1B
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/35:
     # description: OCT4-CHA3-1C
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/36:
     # description: OCT4-CHA3-1D
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/37:
     # description: OCT4-CHA3-3A
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/38:
     # description: OCT4-CHA3-3B
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/39:
     # description: OCT4-CHA3-3C
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/40:
     # description: OCT4-CHA3-3D
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/41:
     # description: OCT4-CHA4-1A
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/42:
     # description: OCT4-CHA4-1B
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/43:
     # description: OCT4-CHA4-1C
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/44:
     # description: OCT4-CHA4-1D
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/45:
     # description: OCT4-CHA4-3A
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/46:
     # description: OCT4-CHA4-3B
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/47:
     # description: OCT4-CHA4-3C
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/48:
     # description: OCT4-CHA4-3D
-    managed: true
+    allowlist:
+      - "description"
   fortyGigE 1/49:
     state: "down"
   fortyGigE 1/50:

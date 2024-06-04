@@ -61,16 +61,24 @@ interfaces:
       bpduguard: true
   twentyFiveGigE 1/5:
     description: "MOC-R8PAC23U27"
-    managed: true
+    state: "up"
+    portmode: "hybrid"
+    untagged: 127
   twentyFiveGigE 1/6:
     description: "MOC-R8PAC23U28"
-    managed: true
+    state: "up"
+    portmode: "hybrid"
+    untagged: 127
   twentyFiveGigE 1/7:
     description: "MOC-R8PAC23U30"
-    managed: true
+    state: "up"
+    portmode: "hybrid"
+    untagged: 127
   twentyFiveGigE 1/8:
     description: "MOC-R8PAC23U31"
-    managed: true
+    state: "up"
+    portmode: "hybrid"
+    untagged: 127
   twentyFiveGigE 1/9:
     description: "NERC-LenA100-U32-Openshift"
     state: "up"
