@@ -537,11 +537,12 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
                     vlan_list = list(range(int(item_parts[0]), int(item_parts[1]) + 1))
                     out += map(str, vlan_list)
         elif isinstance(tagList, str):
-            return unmanaged_vlan_list
+            if tagList == "all":
+                return unmanaged_vlan_list
 
         return out
 
-    def os9_cleanvlans(intf_label, sw_config, man_fields, default_port, managed_vlan_list, unmanaged_vlan_list):
+    def os9_cleanvlans(intf_label, sw_config, man_fields, default_port, managed_vlan_list, unmanaged_vlan_list, vlan_mode):
         """
         Create OS9 commands for cleaning vlans
 
@@ -566,27 +567,26 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
         if default_port:
             return out
 
-        for vlan_mode in ["untagged", "tagged"]:
-            existing_vlan_list = os9_searchconfig(sw_config, vlan_interface_types, [vlan_mode], intf_label)
+        existing_vlan_list = os9_searchconfig(sw_config, vlan_interface_types, [vlan_mode], intf_label)
 
-            if vlan_mode == "tagged" and "tagged" in man_fields:
-                check_vllist = getTaggedVlanList(man_fields["tagged"], unmanaged_vlan_list)
-            elif vlan_mode == "untagged" and "untagged" in man_fields:
-                check_vllist = [str(man_fields["untagged"])]
-            else:
-                check_vllist = []
+        if vlan_mode == "tagged" and "tagged" in man_fields:
+            check_vllist = getTaggedVlanList(man_fields["tagged"], unmanaged_vlan_list)
+        elif vlan_mode == "untagged" and "untagged" in man_fields:
+            check_vllist = [str(man_fields["untagged"])]
+        else:
+            check_vllist = []
 
-            for existing_vlan in existing_vlan_list:
-                vlan_id = existing_vlan.split(" ")[-1]
-                if not vlan_id in check_vllist and not vlan_id in managed_vlan_list:
-                    # Don't remove managed vlan
-                    cur_intf_cfg = []
+        for existing_vlan in existing_vlan_list:
+            vlan_id = existing_vlan.split(" ")[-1]
+            if not vlan_id in check_vllist and not vlan_id in managed_vlan_list:
+                # Don't remove managed vlan
+                cur_intf_cfg = []
 
-                    cur_intf_cfg.append(f"interface {str(existing_vlan)}")
-                    conf_line = f"no {vlan_mode} {intf_label}"
-                    cur_intf_cfg.append(conf_line)
+                cur_intf_cfg.append(f"interface {str(existing_vlan)}")
+                conf_line = f"no {vlan_mode} {intf_label}"
+                cur_intf_cfg.append(conf_line)
 
-                    out.append(cur_intf_cfg)
+                out.append(cur_intf_cfg)
 
         return out
 
@@ -864,60 +864,102 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
     running_config = OS9_GETINTFCONFIG(intf_label, sw_config)
 
-    is_managed = "managed" in intf_fields and intf_fields["managed"]
-    is_vlan = "vlan" in intf_label.lower()
+    # Build allowlist
+    # all fields defined here - any additional fields except allowlist / blocklist should be defined here
+    all_fields = [
+        "portmode",
+        "name",
+        "description",
+        "state",
+        "mtu",
+        "autoneg",
+        "fec",
+        "ip4",
+        "ip6",
+        "lag-members",
+        "lacp-rate",
+        "mlag",
+        "stp",
+        "untagged",
+        "tagged",
+        "lacp-members-active",
+        "lacp-members-passive"
+    ]
+
+    allowlist = []
+    if "allowlist" in intf_fields:
+        allowlist = intf_fields["allowlist"]
+    elif "blocklist" in intf_fields:
+        allowlist = [field for field in all_fields if field not in intf_fields["blocklist"]]
+    else:
+        allowlist = all_fields
 
     cur_intf_cfg = []
     output = []
 
-    portmode_out,default_port = os9_portmode(intf_fields, running_config)
-    if not is_managed and default_port:
-        default_list.append(intf_label)
-
-    if is_managed:
-        default_port = False
+    default_port = False
+    if "portmode" in allowlist:
+        portmode_out,default_port = os9_portmode(intf_fields, running_config)
+        if default_port:
+            default_list.append(intf_label)
 
     # General
     # Only set name and description on managed ports that are not vlans or if not managed
-    if (is_managed and not is_vlan) or not is_managed:
+    if "name" in allowlist:
         cur_intf_cfg += os9_name(intf_fields, running_config, default_port)
+    if "description" in allowlist:
         cur_intf_cfg += os9_description(intf_fields, running_config, default_port)
-
-    if not is_managed:
+    if "state" in allowlist:
         cur_intf_cfg += os9_state(intf_fields, running_config, default_port)
+    if "mtu" in allowlist:
         cur_intf_cfg += os9_mtu(intf_fields, running_config, default_port)
+    if "autoneg" in allowlist:
         cur_intf_cfg += os9_autoneg(intf_label, intf_fields, running_config, default_port)
+    if "fec" in allowlist:
         cur_intf_cfg += os9_fec(intf_fields, running_config, default_port)
-        # L3
+    # L3
+    if "ip4" in allowlist:
         cur_intf_cfg += os9_ip4(intf_fields, running_config, default_port)
+    if "ip6" in allowlist:
         cur_intf_cfg += os9_ip6(intf_fields, running_config, default_port)
-        # LAG
+    # LAG
+    if "lag-members" in allowlist:
         cur_intf_cfg += os9_lagmembers(intf_fields, running_config, default_port)
+    if "lacp-rate" in allowlist:
         cur_intf_cfg += os9_lacprate(intf_fields, running_config, default_port)
 
-        # VLAN interfaces / L2
+    # VLAN interfaces / L2
+    if "portmode" in allowlist:
         cur_intf_cfg += portmode_out
+    if "mlag" in allowlist:
         cur_intf_cfg += os9_mlag(intf_fields, running_config, default_port)
-        # STP
+    # STP
+    if "stp" in allowlist:
         cur_intf_cfg += os9_stp(intf_fields, running_config, default_port)
 
-        # these go directly to output because they are controlling other interfaces
-        cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list)
+    # these go directly to output because they are controlling other interfaces
+    if "untagged" in allowlist:
+        cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list, "untagged")
+        output += cleanvlan_list
+    if "tagged" in allowlist:
+        cleanvlan_list = os9_cleanvlans(intf_label, sw_config, intf_fields, default_port, managed_vlan_list, unmanaged_vlan_list, "tagged")
         output += cleanvlan_list
 
+    if "untagged" in allowlist:
         untag_list = os9_untagged(intf_label, sw_config, intf_fields, default_port)
         output += untag_list
-
+    if "tagged" in allowlist:
         tag_list = os9_tagged(intf_label, sw_config, intf_fields, default_port, unmanaged_vlan_list)
         output += tag_list
 
-        # These change physical interfaces
+    # These change physical interfaces
+    if "lacp-members-active" in allowlist or "lacp-members-passive" in allowlist:
         lacp_members_cleaned = os9_cleanlacpmembers(intf_label, sw_config, intf_fields, default_list)
         output += lacp_members_cleaned
-
+    if "lacp-members-active" in allowlist:
         lacp_members_active_list = os9_lacpmembersactive(intf_label, sw_config, intf_fields)
         output += lacp_members_active_list
-
+    if "lacp-members-passive" in allowlist:
         lacp_members_passive_list = os9_lacpmemberspassive(intf_label, sw_config, intf_fields)
         output += lacp_members_passive_list
 
@@ -1075,6 +1117,10 @@ def OS9_GETCONFIG(sw_config, intf, vlans):
     for key,fields in manifest.items():
         if "fanout" in fields:
             # Skip fanouts
+            continue
+
+        if "managed" in fields and fields["managed"]:
+            # Skip managed interfaces
             continue
 
         intf_lines,default_list = OS9_GENERATEINTFCONFIG(key, fields, conf_lines, managed_vlan_list, unmanaged_vlan_list, default_list)

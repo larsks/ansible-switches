@@ -7,6 +7,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/2:
     description: "OCT1-U2"
     state: "up"
@@ -15,6 +18,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/3:
     description: "OCT1-U3"
     state: "up"
@@ -23,6 +29,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/4:
     description: "OCT1-U4"
     state: "up"
@@ -31,6 +40,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/5:
     description: "OCT1-U5"
     state: "up"
@@ -39,6 +51,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/6:
     description: "OCT1-U6"
     state: "up"
@@ -47,6 +62,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/7:
     description: "OCT1-U7"
     state: "up"
@@ -55,6 +73,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/8:
     description: "OCT1-U8"
     state: "up"
@@ -63,6 +84,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/9:
     description: "OCT1-U9"
     state: "up"
@@ -71,6 +95,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/10:
     description: "OCT1-U10"
     state: "up"
@@ -79,6 +106,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/11:
     description: "OCT1-U11"
     state: "up"
@@ -87,6 +117,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/12:
     description: "OCT1-U12"
     state: "up"
@@ -95,6 +128,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/13:
     description: "OCT1-U13"
     state: "up"
@@ -103,6 +139,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/14:
     description: "OCT1-U14"
     state: "up"
@@ -111,6 +150,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/15:
     description: "OCT1-U15"
     state: "up"
@@ -119,6 +161,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/16:
     description: "OCT1-U16"
     state: "up"
@@ -127,6 +172,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/17:
     description: "OCT1-U17"
     state: "up"
@@ -135,6 +183,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/18:
     description: "OCT1-U18"
     state: "up"
@@ -143,6 +194,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/19:
     description: "OCT1-U19"
     state: "up"
@@ -151,6 +205,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/20:
     description: "OCT1-U20"
     state: "up"
@@ -159,6 +216,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/21:
     description: "OCT1-U21"
     state: "up"
@@ -167,6 +227,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/22:
     description: "OCT1-U22"
     state: "up"
@@ -175,6 +238,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/23:
     description: "OCT1-U23"
     state: "up"
@@ -183,6 +249,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/24:
     description: "OCT1-U24"
     state: "up"
@@ -196,6 +265,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/26:
     description: "OCT1-U26"
     state: "up"
@@ -204,6 +276,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/27:
     description: "OCT1-U27"
     state: "up"
@@ -212,6 +287,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/28:
     description: "OCT1-U28"
     state: "up"
@@ -220,6 +298,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/29:
     description: "OCT1-U29"
     state: "up"
@@ -228,6 +309,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/30:
     description: "OCT1-U30"
     state: "up"
@@ -236,6 +320,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/31:
     description: "OCT1-U31"
     state: "up"
@@ -244,6 +331,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/32:
     description: "OCT1-U32"
     state: "up"
@@ -252,6 +342,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/33:
     description: "OCT1-U33"
     state: "up"
@@ -260,6 +353,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/34:
     description: "OCT1-U34"
     state: "up"
@@ -268,6 +364,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/35:
     description: "OCT1-U35"
     state: "up"
@@ -276,6 +375,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/36:
     description: "OCT1-U36"
     state: "up"
@@ -284,6 +386,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/37:
     description: "OCT1-U37"
     state: "up"
@@ -292,6 +397,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/38:
     description: "OCT1-U38"
     state: "up"
@@ -300,6 +408,9 @@ interfaces:
     stp:
       edgeport: true
       bpduguard: true
+    blocklist:
+      - "untagged"
+      - "tagged"
   TenGigabitEthernet 1/39:
     state: "down"
   TenGigabitEthernet 1/40:

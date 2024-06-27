@@ -101,64 +101,80 @@ interfaces:
       speed: "10G"
   TenGigabitEthernet 1/49/1:
     description: "OCT4-CHA1-01A"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/49/2:
     description: "OCT4-CHA1-01B"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/49/3:
     description: "OCT4-CHA1-01C"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/49/4:
     description: "OCT4-CHA1-01D"
-    managed: true
+    allowlist:
+      - "description"
   fortyGigE 1/50:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/50/1:
     description: "OCT4-CHA1-03A"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/50/2:
     description: "OCT4-CHA1-03B"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/50/3:
     description: "OCT4-CHA1-03C"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/50/4:
     description: "OCT4-CHA1-03D"
-    managed: true
+    allowlist:
+      - "description"
   fortyGigE 1/51:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/51/1:
     description: "OCT4-CHA2-01A"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/51/2:
     description: "OCT4-CHA2-01B"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/51/3:
     description: "OCT4-CHA2-01C"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/51/4:
     description: "OCT4-CHA2-01D"
-    managed: true
+    allowlist:
+      - "description"
   fortyGigE 1/52:
     fanout:
       type: "quad"
       speed: "10G"
   TenGigabitEthernet 1/52/1:
     description: "OCT4-CHA2-03A"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/52/2:
     description: "OCT4-CHA2-03B"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/52/3:
     description: "OCT4-CHA2-03C"
-    managed: true
+    allowlist:
+      - "description"
   TenGigabitEthernet 1/52/4:
     description: "OCT4-CHA2-03D"
-    managed: true
+    allowlist:
+      - "description"
   fortyGigE 1/53:
     state: "down"
   fortyGigE 1/54:

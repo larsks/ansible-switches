@@ -17,6 +17,9 @@ vlans:
   208:
     name: "ESI-CONTROL-PLANE"
     description: "ESI control plane"
+  211:
+    name: "MOC-NESE"
+    description: "New England Storage Exchange (NESE)"
   213:
     name: "MOC-PROD-CEPH-ISCSI"
     description: "Ceph Cluster iSCSI"
@@ -866,6 +869,9 @@ vlans:
   911:
     name: "OCT-MOC-OBM"
     description: "For OCT/UMass nodes IPMI"
+  915:
+    name: "OCT-CHAMELEON-OBM"
+    description: "For OCT Chameleon OBMs 10.54.0.0 /20"
   920:
     name: "CL-ESI-TESTBED-EXP"
     description: "Cl/ESI testbed network"
@@ -878,6 +884,306 @@ vlans:
   933:
     name: "OCT-PDU"
     description: "PDU network for OCT"
+  2400:
+    name: oct-chameleon-2400-internal
+    description: OCT Chameleon 2400 internal
+  2401:
+    name: oct-chameleon-2401-provisioning
+    description: OCT Chameleon 2401 Provisioning
+  2402:
+    name: oct-chameleon-2402
+    description: OCT Chameleon 2402
+  2403:
+    name: oct-chameleon-2403
+    description: OCT Chameleon 2403
+  2404:
+    name: oct-chameleon-2404
+    description: OCT Chameleon 2404
+  2405:
+    name: oct-chameleon-2405
+    description: OCT Chameleon 2405
+  2406:
+    name: oct-chameleon-2406
+    description: OCT Chameleon 2406
+  2407:
+    name: oct-chameleon-2407
+    description: OCT Chameleon 2407
+  2408:
+    name: oct-chameleon-2408
+    description: OCT Chameleon 2408
+  2409:
+    name: oct-chameleon-2409
+    description: OCT Chameleon 2409
+  2410:
+    name: oct-chameleon-2410
+    description: OCT Chameleon 2410
+  2411:
+    name: oct-chameleon-2411
+    description: OCT Chameleon 2411
+  2412:
+    name: oct-chameleon-2412
+    description: OCT Chameleon 2412
+  2413:
+    name: oct-chameleon-2413
+    description: OCT Chameleon 2413
+  2414:
+    name: oct-chameleon-2414
+    description: OCT Chameleon 2414
+  2415:
+    name: oct-chameleon-2415
+    description: OCT Chameleon 2415
+  2416:
+    name: oct-chameleon-2416
+    description: OCT Chameleon 2416
+  2417:
+    name: oct-chameleon-2417
+    description: OCT Chameleon 2417
+  2418:
+    name: oct-chameleon-2418
+    description: OCT Chameleon 2418
+  2419:
+    name: oct-chameleon-2419
+    description: OCT Chameleon 2419
+  2420:
+    name: oct-chameleon-2420
+    description: OCT Chameleon 2420
+  2421:
+    name: oct-chameleon-2421
+    description: OCT Chameleon 2421
+  2422:
+    name: oct-chameleon-2422
+    description: OCT Chameleon 2422
+  2423:
+    name: oct-chameleon-2423
+    description: OCT Chameleon 2423
+  2424:
+    name: oct-chameleon-2424
+    description: OCT Chameleon 2424
+  2425:
+    name: oct-chameleon-2425
+    description: OCT Chameleon 2425
+  2426:
+    name: oct-chameleon-2426
+    description: OCT Chameleon 2426
+  2427:
+    name: oct-chameleon-2427
+    description: OCT Chameleon 2427
+  2428:
+    name: oct-chameleon-2428
+    description: OCT Chameleon 2428
+  2429:
+    name: oct-chameleon-2429
+    description: OCT Chameleon 2429
+  2430:
+    name: oct-chameleon-2430
+    description: OCT Chameleon 2430
+  2431:
+    name: oct-chameleon-2431
+    description: OCT Chameleon 2431
+  2432:
+    name: oct-chameleon-2432
+    description: OCT Chameleon 2432
+  2433:
+    name: oct-chameleon-2433
+    description: OCT Chameleon 2433
+  2434:
+    name: oct-chameleon-2434
+    description: OCT Chameleon 2434
+  2435:
+    name: oct-chameleon-2435
+    description: OCT Chameleon 2435
+  2436:
+    name: oct-chameleon-2436
+    description: OCT Chameleon 2436
+  2437:
+    name: oct-chameleon-2437
+    description: OCT Chameleon 2437
+  2438:
+    name: oct-chameleon-2438
+    description: OCT Chameleon 2438
+  2439:
+    name: oct-chameleon-2439
+    description: OCT Chameleon 2439
+  2440:
+    name: oct-chameleon-2440
+    description: OCT Chameleon 2440
+  2441:
+    name: oct-chameleon-2441
+    description: OCT Chameleon 2441
+  2442:
+    name: oct-chameleon-2442
+    description: OCT Chameleon 2442
+  2443:
+    name: oct-chameleon-2443
+    description: OCT Chameleon 2443
+  2444:
+    name: oct-chameleon-2444
+    description: OCT Chameleon 2444
+  2445:
+    name: oct-chameleon-2445
+    description: OCT Chameleon 2445
+  2446:
+    name: oct-chameleon-2446
+    description: OCT Chameleon 2446
+  2447:
+    name: oct-chameleon-2447
+    description: OCT Chameleon 2447
+  2448:
+    name: oct-chameleon-2448
+    description: OCT Chameleon 2448
+  2449:
+    name: oct-chameleon-2449
+    description: OCT Chameleon 2449
+  2450:
+    name: oct-chameleon-2450
+    description: OCT Chameleon 2450
+  2451:
+    name: oct-chameleon-2451
+    description: OCT Chameleon 2451
+  2452:
+    name: oct-chameleon-2452
+    description: OCT Chameleon 2452
+  2453:
+    name: oct-chameleon-2453
+    description: OCT Chameleon 2453
+  2454:
+    name: oct-chameleon-2454
+    description: OCT Chameleon 2454
+  2455:
+    name: oct-chameleon-2455
+    description: OCT Chameleon 2455
+  2456:
+    name: oct-chameleon-2456
+    description: OCT Chameleon 2456
+  2457:
+    name: oct-chameleon-2457
+    description: OCT Chameleon 2457
+  2458:
+    name: oct-chameleon-2458
+    description: OCT Chameleon 2458
+  2459:
+    name: oct-chameleon-2459
+    description: OCT Chameleon 2459
+  2460:
+    name: oct-chameleon-2460
+    description: OCT Chameleon 2460
+  2461:
+    name: oct-chameleon-2461
+    description: OCT Chameleon 2461
+  2462:
+    name: oct-chameleon-2462
+    description: OCT Chameleon 2462
+  2463:
+    name: oct-chameleon-2463
+    description: OCT Chameleon 2463
+  2464:
+    name: oct-chameleon-2464
+    description: OCT Chameleon 2464
+  2465:
+    name: oct-chameleon-2465
+    description: OCT Chameleon 2465
+  2466:
+    name: oct-chameleon-2466
+    description: OCT Chameleon 2466
+  2467:
+    name: oct-chameleon-2467
+    description: OCT Chameleon 2467
+  2468:
+    name: oct-chameleon-2468
+    description: OCT Chameleon 2468
+  2469:
+    name: oct-chameleon-2469
+    description: OCT Chameleon 2469
+  2470:
+    name: oct-chameleon-2470
+    description: OCT Chameleon 2470
+  2471:
+    name: oct-chameleon-2471
+    description: OCT Chameleon 2471
+  2472:
+    name: oct-chameleon-2472
+    description: OCT Chameleon 2472
+  2473:
+    name: oct-chameleon-2473
+    description: OCT Chameleon 2473
+  2474:
+    name: oct-chameleon-2474
+    description: OCT Chameleon 2474
+  2475:
+    name: oct-chameleon-2475
+    description: OCT Chameleon 2475
+  2476:
+    name: oct-chameleon-2476
+    description: OCT Chameleon 2476
+  2477:
+    name: oct-chameleon-2477
+    description: OCT Chameleon 2477
+  2478:
+    name: oct-chameleon-2478
+    description: OCT Chameleon 2478
+  2479:
+    name: oct-chameleon-2479
+    description: OCT Chameleon 2479
+  2480:
+    name: oct-chameleon-2480
+    description: OCT Chameleon 2480
+  2481:
+    name: oct-chameleon-2481
+    description: OCT Chameleon 2481
+  2482:
+    name: oct-chameleon-2482
+    description: OCT Chameleon 2482
+  2483:
+    name: oct-chameleon-2483
+    description: OCT Chameleon 2483
+  2484:
+    name: oct-chameleon-2484
+    description: OCT Chameleon 2484
+  2485:
+    name: oct-chameleon-2485
+    description: OCT Chameleon 2485
+  2486:
+    name: oct-chameleon-2486
+    description: OCT Chameleon 2486
+  2487:
+    name: oct-chameleon-2487
+    description: OCT Chameleon 2487
+  2488:
+    name: oct-chameleon-2488
+    description: OCT Chameleon 2488
+  2489:
+    name: oct-chameleon-2489
+    description: OCT Chameleon 2489
+  2490:
+    name: oct-chameleon-2490
+    description: OCT Chameleon 2490
+  2491:
+    name: oct-chameleon-2491
+    description: OCT Chameleon 2491
+  2492:
+    name: oct-chameleon-2492
+    description: OCT Chameleon 2492
+  2493:
+    name: oct-chameleon-2493
+    description: OCT Chameleon 2493
+  2494:
+    name: oct-chameleon-2494
+    description: OCT Chameleon 2494
+  2495:
+    name: oct-chameleon-2495
+    description: OCT Chameleon 2495
+  2496:
+    name: oct-chameleon-2496
+    description: OCT Chameleon 2496
+  2497:
+    name: oct-chameleon-2497
+    description: OCT Chameleon 2497
+  2498:
+    name: oct-chameleon-2498
+    description: OCT Chameleon 2498
+  2499:
+    name: oct-chameleon-2499
+    description: OCT Chameleon 2499
   2500:
     name: oct-cloudlab-2500
     description: OCT CloudLab Vlan 2500
