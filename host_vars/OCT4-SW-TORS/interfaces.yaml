@@ -51,6 +51,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 208
     tagged:
+      - 211
       - 213
       - 250
       - 351:499
@@ -69,6 +70,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 208
     tagged:
+      - 211
       - 213
       - 250
       - 351:499
@@ -94,6 +96,7 @@ interfaces:
     portmode: "hybrid"
     untagged: 208
     tagged:
+      - 211
       - 213
       - 250
       - 351:499

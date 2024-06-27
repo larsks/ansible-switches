@@ -17,6 +17,9 @@ vlans:
   208:
     name: "ESI-CONTROL-PLANE"
     description: "ESI control plane"
+  211:
+    name: "MOC-NESE"
+    description: "New England Storage Exchange (NESE)"
   213:
     name: "MOC-PROD-CEPH-ISCSI"
     description: "Ceph Cluster iSCSI"
