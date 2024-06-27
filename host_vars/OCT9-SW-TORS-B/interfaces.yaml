@@ -11,7 +11,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/2:
     description: "OCT9-FPGA9 FPGA 2"
     state: "up"
@@ -24,7 +24,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/3:
     description: "OCT9-FPGA10 FPGA 1"
     state: "up"
@@ -37,7 +37,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/4:
     description: "OCT9-FPGA10 FPGA 2"
     state: "up"
@@ -50,7 +50,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/5:
     description: "OCT9-FPGA11 FPGA 1"
     state: "up"
@@ -63,7 +63,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/6:
     description: "OCT9-FPGA11 FPGA 2"
     state: "up"
@@ -76,7 +76,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/7:
     description: "OCT9-FPGA12 FPGA 1"
     state: "up"
@@ -89,7 +89,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/8:
     description: "OCT9-FPGA12 FPGA 2"
     state: "up"
@@ -102,7 +102,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/9:
     description: "OCT9-FPGA13 FPGA 1"
     state: "up"
@@ -115,7 +115,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/10:
     description: "OCT9-FPGA13 FPGA 2"
     state: "up"
@@ -128,7 +128,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/11:
     description: "OCT9-FPGA14 FPGA 1"
     state: "up"
@@ -141,7 +141,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/12:
     description: "OCT9-FPGA14 FPGA 2"
     state: "up"
@@ -154,7 +154,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/13:
     description: "OCT9-FPGA15 FPGA 1"
     state: "up"
@@ -167,7 +167,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/14:
     description: "OCT9-FPGA15 FPGA 2"
     state: "up"
@@ -180,7 +180,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/15:
     description: "OCT9-FPGA16 FPGA 1"
     state: "up"
@@ -193,7 +193,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/16:
     description: "OCT9-FPGA16 FPGA 2"
     state: "up"
@@ -206,7 +206,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/17:
     description: "OCT9-FPGA9 100G"
     state: "up"
@@ -217,7 +217,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/18:
     description: "OCT9-FPGA10 100G"
     state: "up"
@@ -228,7 +228,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/19:
     description: "OCT9-FPGA11 100G"
     state: "up"
@@ -239,7 +239,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/20:
     description: "OCT9-FPGA12 100G"
     state: "up"
@@ -250,7 +250,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/21:
     fanout:
       type: "single"
@@ -265,7 +265,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/22:
     fanout:
       type: "single"
@@ -280,7 +280,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/23:
     fanout:
       type: "single"
@@ -295,7 +295,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/24:
     fanout:
       type: "single"
@@ -310,7 +310,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/25:
     fanout:
       type: "single"
@@ -325,7 +325,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/26:
     fanout:
       type: "single"
@@ -340,7 +340,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/27:
     fanout:
       type: "single"
@@ -355,7 +355,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/28:
     fanout:
       type: "single"
@@ -370,7 +370,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/29:
     state: "down"
   hundredGigE 1/30:

@@ -11,7 +11,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/2:
     description: "U03-FPGA-2"
     state: "up"
@@ -24,7 +24,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/3:
     description: "U05-FPGA-1"
     state: "up"
@@ -37,7 +37,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/4:
     description: "U05-FPGA-2"
     state: "up"
@@ -50,7 +50,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/5:
     description: "U07-FPGA-1"
     state: "up"
@@ -63,7 +63,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/6:
     description: "U07-FPGA-2"
     state: "up"
@@ -76,7 +76,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/7:
     description: "U09-FPGA-1"
     state: "up"
@@ -89,7 +89,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/8:
     description: "U09-FPGA-2"
     state: "up"
@@ -102,7 +102,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/9:
     description: "U11-FPGA-1"
     state: "up"
@@ -115,7 +115,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/10:
     description: "U11-FPGA-2"
     state: "up"
@@ -128,7 +128,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/11:
     description: "U13-FPGA-1"
     state: "up"
@@ -141,7 +141,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/12:
     description: "U13-FPGA-2"
     state: "up"
@@ -154,7 +154,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/13:
     description: "U15-FPGA-1"
     state: "up"
@@ -167,7 +167,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/14:
     description: "U15-FPGA-2"
     state: "up"
@@ -180,7 +180,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/15:
     description: "U17-FPGA-1"
     state: "up"
@@ -193,7 +193,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/16:
     description: "U17-FPGA-2"
     state: "up"
@@ -206,7 +206,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/17:
     fanout:
       type: "quad"
@@ -221,7 +221,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/17/2:
     description: "U05-Experiment"
     state: "up"
@@ -232,7 +232,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/17/3:
     description: "U07-Experiment"
     state: "up"
@@ -243,7 +243,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/17/4:
     description: "U09-Experiment"
     state: "up"
@@ -254,7 +254,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/18:
     fanout:
       type: "quad"
@@ -269,7 +269,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/18/2:
     description: "U13-Experiment"
     state: "up"
@@ -280,7 +280,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/18/3:
     description: "U15-Experiment"
     state: "up"
@@ -291,7 +291,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   TenGigabitEthernet 1/18/4:
     description: "U17-Experiment"
     state: "up"
@@ -302,7 +302,7 @@ interfaces:
       bpduguard: true
     blocklist:
       - "untagged"
-      - "tagged"  
+      - "tagged"
   hundredGigE 1/19:
     state: "down"
   hundredGigE 1/20:
