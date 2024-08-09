@@ -1,8 +1,12 @@
 interfaces:
   GigabitEthernet 1/1:
-    state: "down"
+    state: "up"
+    portmode: "access"
+    untagged: 930
   GigabitEthernet 1/2:
-    state: "down"
+    state: "up"
+    portmode: "access"
+    untagged: 930
   GigabitEthernet 1/3:
     state: "down"
   GigabitEthernet 1/4:

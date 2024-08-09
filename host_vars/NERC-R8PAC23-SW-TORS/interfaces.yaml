@@ -152,17 +152,9 @@ interfaces:
       edgeport: true
       bpduguard: true
   twentyFiveGigE 1/15:
-    description: "NERC-LenA100-U39-Openshift-Test"
-    state: "up"
-    mtu: 9216
-    portmode: "hybrid"
-    untagged: 2174
-    tagged:
-      - 2170
-      - 2175
-    stp:
-      edgeport: true
-      bpduguard: true
+    description: "NERC-LenA100-U39"
+    allowlist:
+      - "description"
   twentyFiveGigE 1/16:
     description: "NERC-LenA100-U40-Openshift"
     state: "up"

@@ -34,7 +34,7 @@ interfaces:
     state: "up"
     mtu: 9216
     portmode: "hybrid"
-    untagged: 3803
+    untagged: 127
     tagged:
       - 920
       - 921
