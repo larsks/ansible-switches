@@ -6,6 +6,7 @@ interfaces:
   twentyFiveGigE 1/1/1:
     description: "MOCINFRA-CTRL-U36-R"
     state: "up"
+    untagged: 127
     mtu: 9216
     portmode: "hybrid"
     stp:
@@ -14,6 +15,7 @@ interfaces:
   twentyFiveGigE 1/1/2:
     description: "MOCINFRA-CTRL-U35-R"
     state: "up"
+    untagged: 127
     mtu: 9216
     portmode: "hybrid"
     stp:
@@ -22,6 +24,7 @@ interfaces:
   twentyFiveGigE 1/1/3:
     description: "MOCINFRA-CTRL-U34-R"
     state: "up"
+    untagged: 127
     mtu: 9216
     portmode: "hybrid"
     stp:
