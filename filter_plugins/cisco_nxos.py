@@ -1,6 +1,14 @@
 import re
 
-def parseRanges(config):
+def getVLANList(config):
+    """
+    Parses vlan ranges in config files. For example, vlan 5-8,10,15-17 will return [5,6,7,8,10,15,16,17]
+
+    :param config: The config string block to parse the VLAN block for
+    :type config: str
+    :return: A list of VLAN IDs
+    :rtype: list
+    """
     config = config.splitlines()
     vlan_list = []
 
@@ -12,8 +20,8 @@ def parseRanges(config):
             # This is a vlan with a range
             for vlan_part in vlan_range_str.split(","):
                 if "-" in vlan_part:
-                    vlan_range = vlan_part.split("-")
-                    vlan_list += [str(i) for i in range(int(vlan_range[0]), int(vlan_range[-1]) + 1)]
+                    vlan_first, vlan_last = vlan_part.split("-")
+                    vlan_list += [str(i) for i in range(int(vlan_first), int(vlan_last) + 1)]
                 else:
                     vlan_list.append(str(vlan_part))
 
@@ -23,10 +31,63 @@ def parseRanges(config):
     return vlan_list
 
 def removeOldLines(config, interfaces, vlans):
+    """
+    This method will take a NXOS config block and remove all the lines that should be overwritten by the ansible generated config
+    This includes any interface block defined in the config that is in the manifest, except those with "managed": true in the manifest
+
+    Example:
+
+    interface Ethernet1/33
+        shutdown
+    
+    interface Ethernet1/34
+        shutdown
+
+    interface Ethernet1/35
+        shutdown
+
+    interface Ethernet1/36
+        shutdown
+
+    interface mgmt0
+      vrf member management
+      ip address 10.80.3.1/20
+    icam monitor scale
+
+    line console
+    line vty
+    boot nxos bootflash:/nxos64-cs.10.3.2.F.bin
+    no system default switchport shutdown
+
+    Output of this mehtod will be:
+
+    interface mgmt0
+      vrf member management
+      ip address 10.80.3.1/20
+    icam monitor scale
+
+    line console
+    line vty
+    boot nxos bootflash:/nxos64-cs.10.3.2.F.bin
+    no system default switchport shutdown
+
+    :param config: The NXOS config block to parse
+    :type config: str
+    :param interfaces: The interfaces manifest
+    :type interfaces: dict
+    :param vlans: The VLANs manifest
+    :type vlans: dict
+    :return: The existing running config without lines that are maintained by ansible manifest
+    :rtype: str
+    """
     config = config.splitlines()
     new_config = []
 
     # Remove lines that will be filled in by this plugin
+    # When delete section is true lines will be deleted
+    # The idea is that after a section is over (such as an interface block)
+    # delete section will be reset to false and be put back to true only if
+    # the next line is determined to be a section that should be deleted
     delete_section = False
     found_vlanrange_line = False
     for line in config:
@@ -57,27 +118,20 @@ def removeOldLines(config, interfaces, vlans):
             # Find the object name
             object_name = line.removeprefix("interface ")
             if not object_name.startswith("Ethernet") and not object_name.startswith("port-channel"):
+                # This allows things like management interfaces to pass through
                 delete_section = False;
                 new_config.append(line)
                 continue
-
-            # Check if object is configured
-            if object_name.count("/") > 1:
-                # this is a breakout
-                object_name = object_name[:object_name.rfind("/")]
-
-            if object_name in interfaces:
-                if "managed" in interfaces[object_name] and interfaces[object_name]["managed"]:
-                    delete_section = False
-                    new_config.append(line)
-                    continue
-                else:
-                    delete_section = True
-                    continue
-            else:
-                new_config.append(line)
+            
+            # Check if this is a managed interface, if so, don't remove the section
+            if object_name in interfaces and interfaces[object_name].get("managed"):
                 delete_section = False
+                new_config.append(line)
                 continue
+            
+            # Delete section
+            delete_section = True
+            continue
 
         if line.startswith("vlan "):
             if not found_vlanrange_line:
@@ -88,7 +142,7 @@ def removeOldLines(config, interfaces, vlans):
             # This is a VLAN config
             object_name = int(line.removeprefix("vlan "))
             if object_name in vlans:
-                if "managed" in vlans[object_name] and vlans[object_name]["managed"]:
+                if vlans[object_name].get("managed"):
                     delete_section = False
                     new_config.append(line)
                     continue
@@ -107,16 +161,25 @@ def removeOldLines(config, interfaces, vlans):
 def generateVLANConfig(vlans):
     config = []
     for id,fields in vlans.items():
-        if "managed" in fields and fields["managed"]:
+        if fields.get("managed"):
             continue
 
         config.append("")  # Newline
         config.append(f"vlan {str(id)}")
-        config.append(f"  name {fields["name"]}")
+        config.append(f"  name {fields['name']}")
 
     return config
 
 def generateINTFConfig(interfaces):
+    """
+    This is the main method that generates the cisco NXOS config from the interface manifest
+    The output is ONLY the lines generated from the manifest, which needs to be combined with the existing running config
+
+    :param interfaces: The interfaces manifest
+    :type interfaces: dict
+    :return: The generated NXOS config
+    :rtype: list
+    """
     def getLAGMembers(fields):
         members = []
         if "lag-members" in fields:
@@ -152,7 +215,7 @@ def generateINTFConfig(interfaces):
                 nxos_mode_str = "1x"
 
             intf_port = intf_num.split("/")[-1]
-            nxos_fanout_str = f"{fanout_fields["speed"]}-{nxos_mode_str}"
+            nxos_fanout_str = f"{fanout_fields['speed']}-{nxos_mode_str}"
             config_dict[f"interface breakout module 1 port {intf_port} map {nxos_fanout_str}"] = []
             continue
 
@@ -167,7 +230,7 @@ def generateINTFConfig(interfaces):
 
         # "description" field
         if "description" in fields:
-            config_dict[dict_key].append(f"description {fields["description"]}")
+            config_dict[dict_key].append(f"description {fields['description']}")
 
         # "enabled" field
         if "enabled" in fields:
@@ -178,14 +241,14 @@ def generateINTFConfig(interfaces):
 
         # "mtu" field
         if "mtu" in fields:
-            config_dict[dict_key].append(f"mtu {fields["mtu"]}")
+            config_dict[dict_key].append(f"mtu {fields['mtu']}")
 
             if is_portchannel:
                 for member_port in getLAGMembers(fields):
                     if member_port not in config_dict:
                         config_dict[member_port] = []
 
-                    config_dict[member_port].append(f"mtu {fields["mtu"]}")
+                    config_dict[member_port].append(f"mtu {fields['mtu']}")
 
         # "autoneg" field
         if "autoneg" in fields:
@@ -196,7 +259,7 @@ def generateINTFConfig(interfaces):
 
         # "speed" field
         if "speed" in fields:
-            config_dict[dict_key].append(f"speed {fields["speed"]}")
+            config_dict[dict_key].append(f"speed {fields['speed']}")
 
         # "fec" field
         if "fec" in fields:
@@ -212,11 +275,11 @@ def generateINTFConfig(interfaces):
 
         # "ip4" field
         if "ip4" in fields:
-            config_dict[dict_key].append(f"ip address {fields["ip4"]}")
+            config_dict[dict_key].append(f"ip address {fields['ip4']}")
 
         # "ip6" field
         if "ip6" in fields:
-            config_dict[dict_key].append(f"ipv6 address {fields["ip6"]}")
+            config_dict[dict_key].append(f"ipv6 address {fields['ip6']}")
 
         # "stp" field
         if "stp" in fields:
@@ -271,9 +334,9 @@ def generateINTFConfig(interfaces):
         if "untagged" in fields:
             untagged_str = ""
             if fields["portmode"] == "hybrid":
-                untagged_str = f"switchport trunk native vlan {fields["untagged"]}"
+                untagged_str = f"switchport trunk native vlan {fields['untagged']}"
             else:
-                untagged_str = f"switchport access vlan {fields["untagged"]}"
+                untagged_str = f"switchport access vlan {fields['untagged']}"
 
             config_dict[dict_key].append(untagged_str)
 
@@ -325,7 +388,7 @@ def generateINTFConfig(interfaces):
         # "mlag" field
         if "mlag" in fields:
             if fields["mlag"]:
-                config_dict[member_port].append(f"vpc {fields["mlag"]}")
+                config_dict[member_port].append(f"vpc {fields['mlag']}")
 
     for key,lines in config_dict.items():
         config.append("")
@@ -336,11 +399,24 @@ def generateINTFConfig(interfaces):
     return config
 
 def NXOS_GETCONFIG(running_config, interfaces, vlans):
-    parsedVLANs = parseRanges(running_config)
-    outputVLANs = []
+    """
+    This is the main method that generates the config that will be applied on the switch
+    It combines the VLAN and interface manifest with the existing running config
+
+    :param running_config: The existing running config
+    :type running_config: str
+    :param interfaces: The interfaces manifest
+    :type interfaces: dict
+    :param vlans: The VLANs manifest
+    :type vlans: dict
+    :return: The generated NXOS config
+    :rtype: str
+    """
+    parsedVLANs = getVLANList(running_config)
+    outputVLANs = [ "1" ]  # Initial list with default vlan
 
     for vlan,fields in vlans.items():
-        if "managed" in fields and fields["managed"]:
+        if fields.get("managed"):
             if str(vlan) in parsedVLANs:
                 outputVLANs.append(str(vlan))
 
@@ -349,9 +425,6 @@ def NXOS_GETCONFIG(running_config, interfaces, vlans):
         outputVLANs.append(str(vlan))
 
     new_config = removeOldLines(running_config, interfaces, vlans)
-
-    # Add default vlan
-    outputVLANs.insert(0, "1")
 
     vlan_cfg_str = "vlan " + ",".join(outputVLANs)
     new_config.append("")
