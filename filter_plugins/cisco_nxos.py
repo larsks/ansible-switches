@@ -39,7 +39,7 @@ def removeOldLines(config, interfaces, vlans):
 
     interface Ethernet1/33
         shutdown
-    
+
     interface Ethernet1/34
         shutdown
 
@@ -122,13 +122,13 @@ def removeOldLines(config, interfaces, vlans):
                 delete_section = False;
                 new_config.append(line)
                 continue
-            
+
             # Check if this is a managed interface, if so, don't remove the section
             if object_name in interfaces and interfaces[object_name].get("managed"):
                 delete_section = False
                 new_config.append(line)
                 continue
-            
+
             # Delete section
             delete_section = True
             continue
