@@ -4,6 +4,7 @@ Ansible site for MOC/OCT switches
 ## Supported Switch OSes
 
 * Dell OS9 (FTOS9)
+* Cisco NXOS
 
 ## Site Setup
 
