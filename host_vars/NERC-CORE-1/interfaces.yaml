@@ -63,6 +63,3 @@ interfaces:
     enabled: false
   Ethernet1/32:
     enabled: false
-  Vlan911:
-    ip4: "10.2.50.50/20"
-    enabled: true
