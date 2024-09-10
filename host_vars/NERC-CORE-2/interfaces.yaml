@@ -1,0 +1,67 @@
+interfaces:
+  Ethernet1/1:
+    enabled: false
+  Ethernet1/2:
+    enabled: false
+  Ethernet1/3:
+    enabled: false
+  Ethernet1/4:
+    enabled: false
+  Ethernet1/5:
+    enabled: false
+  Ethernet1/6:
+    enabled: false
+  Ethernet1/7:
+    enabled: false
+  Ethernet1/8:
+    enabled: false
+  Ethernet1/9:
+    enabled: false
+  Ethernet1/10:
+    enabled: false
+  Ethernet1/11:
+    enabled: false
+  Ethernet1/12:
+    enabled: false
+  Ethernet1/13:
+    enabled: false
+  Ethernet1/14:
+    enabled: false
+  Ethernet1/15:
+    enabled: false
+  Ethernet1/16:
+    enabled: false
+  Ethernet1/17:
+    enabled: false
+  Ethernet1/18:
+    enabled: false
+  Ethernet1/19:
+    enabled: false
+  Ethernet1/20:
+    enabled: false
+  Ethernet1/21:
+    enabled: false
+  Ethernet1/22:
+    enabled: false
+  Ethernet1/23:
+    enabled: false
+  Ethernet1/24:
+    enabled: false
+  Ethernet1/25:
+    enabled: false
+  Ethernet1/26:
+    enabled: false
+  Ethernet1/27:
+    enabled: false
+  Ethernet1/28:
+    enabled: false
+  Ethernet1/29:
+    enabled: false
+  Ethernet1/29/1:
+    enabled: false
+  Ethernet1/30:
+    enabled: false
+  Ethernet1/31:
+    enabled: false
+  Ethernet1/32:
+    enabled: false

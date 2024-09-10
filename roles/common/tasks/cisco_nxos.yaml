@@ -1,0 +1,86 @@
+---
+# Define nxos connection parameters
+- name: Define Connection Parameters
+  ansible.builtin.set_fact:
+    ansible_ssh_user: "{{ sw_secret['user'] }}"
+    ansible_ssh_pass: "{{ sw_secret['pass'] }}"
+
+- name: Enable sftp-server feature
+  cisco.nxos.nxos_feature:
+    feature: sftp-server
+    state: enabled
+  notify: Save Config
+
+- name: Enable scp-server feature
+  cisco.nxos.nxos_feature:
+    feature: scp-server
+    state: enabled
+  notify: Save Config
+
+- name: Enable vpc feature
+  cisco.nxos.nxos_feature:
+    feature: vpc
+    state: enabled
+  notify: Save Config
+
+- name: Enable lacp feature
+  cisco.nxos.nxos_feature:
+    feature: lacp
+    state: enabled
+  notify: Save Config
+
+- name: Enable vlan interface feature
+  cisco.nxos.nxos_feature:
+    feature: interface-vlan
+    state: enabled
+  notify: Save Config
+
+- name: Gather only the config and default facts
+  cisco.nxos.nxos_facts:
+    gather_subset:
+      - config
+
+- name: "Set Hostname"
+  cisco.nxos.nxos_hostname:
+    config:
+      hostname: "{{ inventory_hostname }}"
+  notify: Save Config
+
+- name: Create Temporary Config File
+  delegate_to: localhost
+  ansible.builtin.tempfile:
+    state: file
+    suffix: temp
+  register: temp_cfg_file
+
+- name: Add Config to Temporary file
+  delegate_to: localhost
+  ansible.builtin.copy:
+    content: "{{ ansible_net_config | NXOS_GETCONFIG(interfaces, vlans) }}"
+    dest: "{{ temp_cfg_file.path }}"
+
+- name: Copy from server to device
+  cisco.nxos.nxos_file_copy:
+    local_file: "{{ temp_cfg_file.path }}"
+    remote_file: ansible_config
+  notify: Save Config
+  register: copy_result
+
+- name: Apply configuration with 1 minute timeout
+  cisco.nxos.nxos_command:
+    commands: configure replace bootflash:ansible_config commit-timeout 60
+    retries: 0
+    wait_for: result[0] contains "Configure replace completed successfully."
+  when: copy_result.changed
+
+# In between here if there is an issue with the management, the client will lose access to the device and will not be able to commit the config. In that case it will revert in 1 minute
+
+- name: Commit configuration replace
+  cisco.nxos.nxos_command:
+    commands: configure replace commit
+  when: copy_result.changed
+
+- name: Save Config
+  cisco.nxos.nxos_command:
+    commands: copy running-config startup-config
+  when: copy_result.changed
