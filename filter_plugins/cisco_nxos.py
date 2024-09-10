@@ -1,5 +1,6 @@
 import re
 
+
 def getVLANList(config: str):
     """
     Parses vlan ranges in config files. For example, vlan 5-8,10,15-17 will return [5,6,7,8,10,15,16,17]
@@ -21,7 +22,9 @@ def getVLANList(config: str):
             for vlan_part in vlan_range_str.split(","):
                 if "-" in vlan_part:
                     vlan_first, vlan_last = vlan_part.split("-")
-                    vlan_list += [str(i) for i in range(int(vlan_first), int(vlan_last) + 1)]
+                    vlan_list += [
+                        str(i) for i in range(int(vlan_first), int(vlan_last) + 1)
+                    ]
                 else:
                     vlan_list.append(str(vlan_part))
 
@@ -29,6 +32,7 @@ def getVLANList(config: str):
             break
 
     return vlan_list
+
 
 def removeOldLines(config: str, interfaces: dict, vlans: dict):
     """
@@ -116,9 +120,11 @@ def removeOldLines(config: str, interfaces: dict, vlans: dict):
 
             # Find the object name
             object_name = line.removeprefix("interface ")
-            if not object_name.startswith("Ethernet") and \
-               not object_name.startswith("port-channel") and \
-               not object_name.startswith("Vlan"):
+            if (
+                not object_name.startswith("Ethernet")
+                and not object_name.startswith("port-channel")
+                and not object_name.startswith("Vlan")
+            ):
                 # This allows things like management interfaces to pass through
                 delete_section = False
                 new_config.append(line)
@@ -159,9 +165,10 @@ def removeOldLines(config: str, interfaces: dict, vlans: dict):
 
     return new_config
 
+
 def generateVLANConfig(vlans: dict):
     config = []
-    for id,fields in vlans.items():
+    for id, fields in vlans.items():
         if fields.get("managed"):
             continue
 
@@ -170,6 +177,7 @@ def generateVLANConfig(vlans: dict):
         config.append(f"  name {fields['name']}")
 
     return config
+
 
 def generateINTFConfig(interfaces: dict):
     """
@@ -181,6 +189,7 @@ def generateINTFConfig(interfaces: dict):
     :return: The generated NXOS config
     :rtype: list
     """
+
     def getLAGMembers(fields: dict):
         members = []
         if "lag-members" in fields:
@@ -201,7 +210,7 @@ def generateINTFConfig(interfaces: dict):
     config_dict = {}
 
     config = []
-    for intf,fields in interfaces.items():
+    for intf, fields in interfaces.items():
         intf_num = intf.split(" ")[-1]
 
         # "fanout" field
@@ -217,7 +226,9 @@ def generateINTFConfig(interfaces: dict):
 
             intf_port = intf_num.split("/")[-1]
             nxos_fanout_str = f"{fanout_fields['speed']}-{nxos_mode_str}"
-            config_dict[f"interface breakout module 1 port {intf_port} map {nxos_fanout_str}"] = []
+            config_dict[
+                f"interface breakout module 1 port {intf_port} map {nxos_fanout_str}"
+            ] = []
             continue
 
         intf_cfg_label = intf
@@ -227,7 +238,7 @@ def generateINTFConfig(interfaces: dict):
 
         is_portchannel = intf.startswith("port-channel")
         if is_portchannel:
-            intf_num = intf[len("port-channel"):]
+            intf_num = intf[len("port-channel") :]
 
         # "description" field
         if "description" in fields:
@@ -391,13 +402,14 @@ def generateINTFConfig(interfaces: dict):
             if fields["mlag"]:
                 config_dict[member_port].append(f"vpc {fields['mlag']}")
 
-    for key,lines in config_dict.items():
+    for key, lines in config_dict.items():
         config.append("")
         config.append(key)
         for line in lines:
             config.append(f"  {line}")
 
     return config
+
 
 def NXOS_GETCONFIG(running_config: str, interfaces: dict, vlans: dict):
     """
@@ -417,7 +429,7 @@ def NXOS_GETCONFIG(running_config: str, interfaces: dict, vlans: dict):
     outputVLANs = []
 
     outputVLANs.append("1")  # Default VLAN required
-    for vlan,fields in vlans.items():
+    for vlan, fields in vlans.items():
         # Carry forward default vlan, which is required
         if fields.get("managed"):
             if str(vlan) in parsedVLANs:
@@ -439,8 +451,7 @@ def NXOS_GETCONFIG(running_config: str, interfaces: dict, vlans: dict):
     out_config = "\n".join(new_config)
     return out_config
 
+
 class FilterModule(object):
     def filters(self):
-        return {
-            "NXOS_GETCONFIG": NXOS_GETCONFIG
-        }
+        return {"NXOS_GETCONFIG": NXOS_GETCONFIG}
