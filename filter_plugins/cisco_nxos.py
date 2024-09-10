@@ -13,7 +13,7 @@ def getVLANList(config: str):
     vlan_list = []
 
     for line in config:
-        if line.startswith("vlan ") and ("-" in line or "," in line):
+        if line.startswith("vlan "):
             # Remove "vlan " prefix
             vlan_range_str = line.removeprefix("vlan ")
 
@@ -25,7 +25,7 @@ def getVLANList(config: str):
                 else:
                     vlan_list.append(str(vlan_part))
 
-            # break after first vlan line
+            # break after first vlan line (all vlans are on the first vlan line)
             break
 
     return vlan_list
@@ -414,11 +414,9 @@ def NXOS_GETCONFIG(running_config: str, interfaces: dict, vlans: dict):
     parsedVLANs = getVLANList(running_config)
     outputVLANs = []
 
+    outputVLANs.append("1")  # Default VLAN required
     for vlan,fields in vlans.items():
         # Carry forward default vlan, which is required
-        if vlan == "1":
-            outputVLANs.append("1")
-
         if fields.get("managed"):
             if str(vlan) in parsedVLANs:
                 outputVLANs.append(str(vlan))

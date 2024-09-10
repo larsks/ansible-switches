@@ -85,8 +85,7 @@ def test_removeOldLines_no_interface(running_config):
 @pytest.mark.parametrize(
     "vlan_list_str, vlan_list_expected",
     [
-        pytest.param("vlan 1", ["1"], marks=pytest.mark.xfail(reason="code does not parse single vlan")),
-
+        ("vlan 1",                  ["1"]),
         ("vlan 1,2,3",              ["1", "2", "3"]),
         ("vlan 1-3",                ["1", "2", "3"]),
         ("vlan 1,2-4,5",            ["1", "2", "3", "4", "5"]),
