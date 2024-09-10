@@ -116,7 +116,9 @@ def removeOldLines(config: str, interfaces: dict, vlans: dict):
 
             # Find the object name
             object_name = line.removeprefix("interface ")
-            if not object_name.startswith("Ethernet") and not object_name.startswith("port-channel"):
+            if not object_name.startswith("Ethernet") and \
+               not object_name.startswith("port-channel") and \
+               not object_name.startswith("Vlan"):
                 # This allows things like management interfaces to pass through
                 delete_section = False
                 new_config.append(line)
@@ -269,7 +271,7 @@ def generateINTFConfig(interfaces: dict):
 
         # Set to L3 mode if needed
         is_l3 = "ip4" in fields or "ip6" in fields
-        if is_l3:
+        if is_l3 and "Vlan" not in intf:
             config_dict[dict_key].append("no switchport")
 
         # "ip4" field
@@ -334,7 +336,7 @@ def generateINTFConfig(interfaces: dict):
             untagged_str = ""
             if fields["portmode"] == "hybrid":
                 untagged_str = f"switchport trunk native vlan {fields['untagged']}"
-            else:
+            elif fields["portmode"] == "access":
                 untagged_str = f"switchport access vlan {fields['untagged']}"
 
             config_dict[dict_key].append(untagged_str)
