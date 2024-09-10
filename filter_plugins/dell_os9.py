@@ -407,7 +407,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
         stp_disabled = "stp" in man_fields and "disabled" in man_fields["stp"] and man_fields["stp"]["disabled"]
         if stp_disabled:
             # stp should be disabled
-            conf_line = f"no spanning-tree"
+            conf_line = "no spanning-tree"
             if conf_line not in running_fields and not default_port:
                 out.append(conf_line)
         elif "no spanning-tree" in running_fields:
@@ -578,7 +578,7 @@ def OS9_GENERATEINTFCONFIG(intf_label, intf_fields, sw_config, managed_vlan_list
 
         for existing_vlan in existing_vlan_list:
             vlan_id = existing_vlan.split(" ")[-1]
-            if not vlan_id in check_vllist and not vlan_id in managed_vlan_list:
+            if vlan_id not in check_vllist and vlan_id not in managed_vlan_list:
                 # Don't remove managed vlan
                 cur_intf_cfg = []
 
