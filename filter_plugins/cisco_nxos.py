@@ -1,6 +1,6 @@
 import re
 
-def getVLANList(config):
+def getVLANList(config: str):
     """
     Parses vlan ranges in config files. For example, vlan 5-8,10,15-17 will return [5,6,7,8,10,15,16,17]
 
@@ -30,7 +30,7 @@ def getVLANList(config):
 
     return vlan_list
 
-def removeOldLines(config, interfaces, vlans):
+def removeOldLines(config: str, interfaces: dict, vlans: dict):
     """
     This method will take a NXOS config block and remove all the lines that should be overwritten by the ansible generated config
     This includes any interface block defined in the config that is in the manifest, except those with "managed": true in the manifest
@@ -59,7 +59,7 @@ def removeOldLines(config, interfaces, vlans):
     boot nxos bootflash:/nxos64-cs.10.3.2.F.bin
     no system default switchport shutdown
 
-    Output of this mehtod will be:
+    Output of this method will be:
 
     interface mgmt0
       vrf member management
@@ -105,8 +105,7 @@ def removeOldLines(config, interfaces, vlans):
 
         if line.startswith("interface breakout "):
             # Existing breakout config, get port
-            match = re.search(r"port (\d+)", line)
-            if match:
+            if match := re.search(r"port (\d+)", line):
                 port_num = match.group(1)
                 object_name = f"Ethernet1/{port_num}"
                 if object_name in interfaces:
@@ -119,7 +118,7 @@ def removeOldLines(config, interfaces, vlans):
             object_name = line.removeprefix("interface ")
             if not object_name.startswith("Ethernet") and not object_name.startswith("port-channel"):
                 # This allows things like management interfaces to pass through
-                delete_section = False;
+                delete_section = False
                 new_config.append(line)
                 continue
 
@@ -158,7 +157,7 @@ def removeOldLines(config, interfaces, vlans):
 
     return new_config
 
-def generateVLANConfig(vlans):
+def generateVLANConfig(vlans: dict):
     config = []
     for id,fields in vlans.items():
         if fields.get("managed"):
@@ -170,7 +169,7 @@ def generateVLANConfig(vlans):
 
     return config
 
-def generateINTFConfig(interfaces):
+def generateINTFConfig(interfaces: dict):
     """
     This is the main method that generates the cisco NXOS config from the interface manifest
     The output is ONLY the lines generated from the manifest, which needs to be combined with the existing running config
@@ -180,7 +179,7 @@ def generateINTFConfig(interfaces):
     :return: The generated NXOS config
     :rtype: list
     """
-    def getLAGMembers(fields):
+    def getLAGMembers(fields: dict):
         members = []
         if "lag-members" in fields:
             members += fields["lag-members"]
@@ -207,11 +206,11 @@ def generateINTFConfig(interfaces):
         if "fanout" in fields:
             fanout_fields = fields["fanout"]
             nxos_mode_str = ""
-            if fanout_fields["mode"] == "quad":
+            if fanout_fields["type"] == "quad":
                 nxos_mode_str = "4x"
-            elif fanout_fields["mode"] == "dual":
+            elif fanout_fields["type"] == "dual":
                 nxos_mode_str = "2x"
-            elif fanout_fields["mode"] == "single":
+            elif fanout_fields["type"] == "single":
                 nxos_mode_str = "1x"
 
             intf_port = intf_num.split("/")[-1]
@@ -398,7 +397,7 @@ def generateINTFConfig(interfaces):
 
     return config
 
-def NXOS_GETCONFIG(running_config, interfaces, vlans):
+def NXOS_GETCONFIG(running_config: str, interfaces: dict, vlans: dict):
     """
     This is the main method that generates the config that will be applied on the switch
     It combines the VLAN and interface manifest with the existing running config
@@ -413,9 +412,13 @@ def NXOS_GETCONFIG(running_config, interfaces, vlans):
     :rtype: str
     """
     parsedVLANs = getVLANList(running_config)
-    outputVLANs = [ "1" ]  # Initial list with default vlan
+    outputVLANs = []
 
     for vlan,fields in vlans.items():
+        # Carry forward default vlan, which is required
+        if vlan == "1":
+            outputVLANs.append("1")
+
         if fields.get("managed"):
             if str(vlan) in parsedVLANs:
                 outputVLANs.append(str(vlan))

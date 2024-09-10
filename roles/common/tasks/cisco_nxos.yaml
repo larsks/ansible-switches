@@ -1,5 +1,5 @@
 ---
-# Define OS9 connection parameters
+# Define nxos connection parameters
 - name: Define Connection Parameters
   ansible.builtin.set_fact:
     ansible_ssh_user: "{{ sw_secret['user'] }}"
